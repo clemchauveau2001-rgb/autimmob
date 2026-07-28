@@ -95,13 +95,13 @@ export default function IntroScreen() {
   const handlePump = useCallback(() => {
     if (phase !== 'idle') return
     setPhase('filling')
+    playStartSound()
 
     const animation = animate(progress, 1, {
       duration: 2.5,
       ease: [0.45, 0, 0.55, 1],
       onComplete: () => {
         setPhase('shaking')
-        playStartSound()
         setTimeout(() => {
           try { localStorage.setItem(SKIP_KEY, String(Date.now())) } catch {}
           setPhase('exiting')
