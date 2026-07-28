@@ -24,29 +24,42 @@ const MINOR = [0.125, 0.375, 0.625, 0.875]
 const SKIP_KEY = 'autimmob_intro_seen'
 const SKIP_TTL = 24 * 60 * 60 * 1000
 
-async function playStartSound() {
-  try {
-    const Ctx = window.AudioContext || window.webkitAudioContext
-    if (!Ctx) return
-    const ctx = new Ctx()
-    const res = await fetch('/sounds/start.mp3')
-    if (!res.ok) return
-    const buf = await ctx.decodeAudioData(await res.arrayBuffer())
-    const src = ctx.createBufferSource()
-    src.buffer = buf
-    src.connect(ctx.destination)
-    src.start(0)
-  } catch { /* son indisponible — pas bloquant */ }
-}
-
 /* ═══════════════════════════════════════ */
 export default function IntroScreen() {
-  // true = montrer l'intro ; false = skip (retour) ; null = pas encore déterminé
   const [show, setShow]   = useState(true)
   const [phase, setPhase] = useState('idle')
-  // idle | filling | shaking | exiting | done
 
-  const progress = useMotionValue(0)
+  const progress    = useMotionValue(0)
+  const audioCtxRef = useRef(null)
+  const audioBufRef = useRef(null)
+
+  // Précharge le son dès le montage → zéro latence au clic
+  useEffect(() => {
+    async function preload() {
+      try {
+        const Ctx = window.AudioContext || window.webkitAudioContext
+        if (!Ctx) return
+        const ctx = new Ctx()
+        audioCtxRef.current = ctx
+        const res = await fetch('/sounds/start.mp3')
+        if (!res.ok) return
+        audioBufRef.current = await ctx.decodeAudioData(await res.arrayBuffer())
+      } catch {}
+    }
+    preload()
+  }, [])
+
+  function playStartSound() {
+    try {
+      const ctx = audioCtxRef.current
+      const buf = audioBufRef.current
+      if (!ctx || !buf) return
+      const src = ctx.createBufferSource()
+      src.buffer = buf
+      src.connect(ctx.destination)
+      src.start(0)
+    } catch {}
+  }
 
   // Couleur du trait selon la progression
   const strokeColor = useTransform(
