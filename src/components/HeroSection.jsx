@@ -162,14 +162,6 @@ export default function HeroSection() {
               Spécialiste Porsche
             </motion.div>
 
-            {/* Badge Marseille */}
-            <motion.div
-              className="absolute -bottom-4 left-6 bg-[#111] text-white shadow-lg px-3 py-1.5 text-xs font-medium uppercase tracking-widest"
-              animate={{ y: [0, 5, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-            >
-              Marseille
-            </motion.div>
           </motion.div>
 
         </div>
