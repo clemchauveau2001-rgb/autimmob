@@ -278,68 +278,86 @@ export default function IntroScreen() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
-          className="relative flex flex-col items-center gap-3"
+          className="flex flex-col items-center gap-4"
         >
-          {/* Anneau pulsant (avant le clic uniquement) */}
-          {canClick && (
-            <>
-              <motion.div
-                className="absolute inset-0 rounded-full border border-[#C0392B]/35 pointer-events-none"
-                animate={{ scale: [1, 1.5], opacity: [0.5, 0] }}
-                transition={{ duration: 1.6, repeat: Infinity, ease: 'easeOut' }}
-              />
-              <motion.div
-                className="absolute inset-0 rounded-full border border-[#C0392B]/20 pointer-events-none"
-                animate={{ scale: [1, 1.8], opacity: [0.3, 0] }}
-                transition={{ duration: 1.6, delay: 0.4, repeat: Infinity, ease: 'easeOut' }}
-              />
-            </>
-          )}
-
-          <motion.button
-            onClick={handlePump}
-            disabled={!canClick}
-            className="relative w-[68px] h-[68px] rounded-full border border-white/25 bg-black/20
-                       flex items-center justify-center
-                       hover:border-white/50 active:scale-95
-                       disabled:cursor-default disabled:opacity-60
-                       transition-all duration-300 backdrop-blur-sm"
-            whileTap={canClick ? { scale: 0.9 } : {}}
-          >
-            {/* Remplissage intérieur pendant fill */}
-            {(isFilling || isShaking) && (
-              <motion.div
-                className="absolute inset-1 rounded-full bg-[#C0392B]/10"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-              />
-            )}
-
-            <svg
-              width="28" height="28" viewBox="0 0 24 24"
-              fill="none" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
-              className={`transition-colors duration-300 ${
-                canClick ? 'stroke-white hover:stroke-[#C0392B]' : 'stroke-white/40'
-              }`}
-            >
-              <path d="M3 22V6a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16"/>
-              <path d="M3 22h12"/>
-              <path d="M15 8h2a2 2 0 0 1 2 2v3a2 2 0 0 0 2 2h0a2 2 0 0 0 2-2V7l-3-3"/>
-              <line x1="7" y1="6" x2="11" y2="6"/>
-            </svg>
-          </motion.button>
-
-          {/* Micro-label */}
+          {/* Label principal — visible dès le chargement */}
           {canClick && (
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.8 }}
-              className="text-white/20 text-[9px] font-medium uppercase tracking-[0.25em]"
+              transition={{ delay: 0.7 }}
+              className="font-[family-name:var(--font-inter)] text-[11px] font-medium uppercase tracking-[0.28em] text-white/55"
             >
-              Démarrer
+              Appuyez pour démarrer
             </motion.p>
           )}
+
+          {/* Flèche rebondissante */}
+          {canClick && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1, y: [0, 5, 0] }}
+              transition={{
+                opacity: { delay: 0.9, duration: 0.5 },
+                y: { delay: 1, duration: 1.1, repeat: Infinity, ease: 'easeInOut' },
+              }}
+            >
+              <svg width="14" height="8" viewBox="0 0 14 8" fill="none">
+                <path d="M1 1l6 6 6-6" stroke="white" strokeOpacity="0.35" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </motion.div>
+          )}
+
+          <div className="relative">
+            {/* Anneaux pulsants */}
+            {canClick && (
+              <>
+                <motion.div
+                  className="absolute inset-0 rounded-full border border-[#C0392B]/50 pointer-events-none"
+                  animate={{ scale: [1, 1.6], opacity: [0.6, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity, ease: 'easeOut' }}
+                />
+                <motion.div
+                  className="absolute inset-0 rounded-full border border-[#C0392B]/30 pointer-events-none"
+                  animate={{ scale: [1, 2.1], opacity: [0.4, 0] }}
+                  transition={{ duration: 1.5, delay: 0.45, repeat: Infinity, ease: 'easeOut' }}
+                />
+              </>
+            )}
+
+            <motion.button
+              onClick={handlePump}
+              disabled={!canClick}
+              className="relative w-[72px] h-[72px] rounded-full border border-white/35 bg-black/20
+                         flex items-center justify-center cursor-pointer
+                         hover:border-[#C0392B]/70 hover:bg-[#C0392B]/8 active:scale-95
+                         disabled:cursor-default disabled:opacity-60
+                         transition-all duration-300 backdrop-blur-sm"
+              whileTap={canClick ? { scale: 0.88 } : {}}
+            >
+              {/* Remplissage intérieur pendant fill */}
+              {(isFilling || isShaking) && (
+                <motion.div
+                  className="absolute inset-1 rounded-full bg-[#C0392B]/10"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                />
+              )}
+
+              <svg
+                width="28" height="28" viewBox="0 0 24 24"
+                fill="none" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
+                className={`transition-colors duration-300 ${
+                  canClick ? 'stroke-white' : 'stroke-white/40'
+                }`}
+              >
+                <path d="M3 22V6a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16"/>
+                <path d="M3 22h12"/>
+                <path d="M15 8h2a2 2 0 0 1 2 2v3a2 2 0 0 0 2 2h0a2 2 0 0 0 2-2V7l-3-3"/>
+                <line x1="7" y1="6" x2="11" y2="6"/>
+              </svg>
+            </motion.button>
+          </div>
         </motion.div>
 
       </motion.div>
