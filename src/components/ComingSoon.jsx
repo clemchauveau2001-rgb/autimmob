@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
 
 /* ─── Date cible : 1er octobre 2026, minuit ─── */
-const TARGET = new Date('2026-10-01T00:00:00').getTime()
+const TARGET = new Date('2026-11-01T00:00:00').getTime()
 
 function getTimeLeft() {
   const diff = TARGET - Date.now()
