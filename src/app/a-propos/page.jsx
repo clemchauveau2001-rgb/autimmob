@@ -19,8 +19,8 @@ const SERVICES = [
         <path d="M9 14l3.5 3.5L19 10" stroke="#C0392B" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
-    title: 'Réparation & entretien',
-    desc: 'Vidange, freins, distribution, climatisation, diagnostic électronique — notre atelier prend en charge tous types de réparations.',
+    title: 'Remise en état',
+    desc: 'Chaque véhicule est inspecté puis remis en état dans notre atelier avant d\'être mis en vente : vidange, freins, distribution, diagnostic électronique.',
   },
   {
     icon: (
@@ -62,7 +62,7 @@ const SERVICES = [
       </svg>
     ),
     title: 'Spécialiste Porsche',
-    desc: 'Entretien, préparation, recherche de véhicules. Pascal connaît les Porsche par passion — chaque modèle, chaque particularité mécanique, chaque point d\'attention.',
+    desc: 'Préparation, recherche et sélection de véhicules. Pascal connaît les Porsche par passion — chaque modèle, chaque particularité mécanique, chaque point d\'attention.',
   },
   {
     icon: (
@@ -134,8 +134,8 @@ export default function AboutPage() {
 
             {/* Car illustration */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
               className="relative hidden lg:flex items-center justify-center"
             >
@@ -211,16 +211,16 @@ export default function AboutPage() {
                 l'excellence mécanique.
               </h2>
               <p className="mt-5 text-[#555] leading-relaxed">
-                Notre atelier à Marseille est équipé pour prendre en charge tous types d'interventions : vidanges, distributions, freins, diagnostics électroniques, préparations Porsche.
+                Notre atelier à Saint-Martin-de-Crau nous permet de préparer nous-mêmes chaque véhicule avant sa mise en vente : vidanges, distributions, freins, diagnostics électroniques, préparations Porsche.
               </p>
               <p className="mt-4 text-[#555] leading-relaxed">
-                Nous travaillons avec des équipements professionnels et des pièces de qualité. Chaque intervention fait l'objet d'un bon de commande détaillé et d'une facture.
+                Nous travaillons avec des équipements professionnels et des pièces de qualité. Chaque intervention est consignée dans l'historique de remise en état du véhicule.
               </p>
               <div className="mt-8 grid grid-cols-2 gap-4">
                 {[
                   { value: '25 ans', label: 'd\'expérience mécanique' },
                   { value: 'Porsche', label: 'Spécialiste reconnu' },
-                  { value: 'Marseille', label: 'Garage de proximité' },
+                  { value: 'Crau', label: 'Saint-Martin-de-Crau' },
                   { value: '360°', label: 'Documentation visuelle' },
                 ].map((stat) => (
                   <div key={stat.value} className="bg-[#F5F5F5] border border-[#E8E8E8] p-4">
@@ -233,8 +233,8 @@ export default function AboutPage() {
 
             {/* Atelier visual */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.7, delay: 0.1 }}
               className="bg-[#F5F5F5] border border-[#E8E8E8] aspect-square flex items-center justify-center"
@@ -334,8 +334,8 @@ export default function AboutPage() {
 
             {/* 360 icon visual */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.7, delay: 0.1 }}
               className="flex items-center justify-center"
@@ -376,7 +376,7 @@ export default function AboutPage() {
                   On se rencontre ?
                 </h2>
                 <p className="mt-4 text-[#555] leading-relaxed">
-                  Notre atelier est à Marseille. Prenez rendez-vous pour visiter un véhicule, discuter d'une réparation ou simplement nous rencontrer.
+                  Notre atelier est à Saint-Martin-de-Crau. Prenez rendez-vous pour visiter un véhicule, parler d'un projet d'achat ou de vente, ou simplement nous rencontrer.
                 </p>
                 <div className="mt-8 space-y-4">
                   <div className="flex items-center gap-4">
@@ -411,7 +411,7 @@ export default function AboutPage() {
                     </div>
                     <div>
                       <p className="text-xs text-[#888] uppercase tracking-wider">Adresse</p>
-                      <p className="text-sm font-medium text-[#111]">Marseille, France</p>
+                      <p className="text-sm font-medium text-[#111]">Saint-Martin-de-Crau, France</p>
                     </div>
                   </div>
                 </div>
@@ -457,7 +457,6 @@ export default function AboutPage() {
                     <option value="">Motif de contact</option>
                     <option>Visite d'un véhicule</option>
                     <option>Vendre ma voiture</option>
-                    <option>Réparation / entretien</option>
                     <option>Mandataire</option>
                     <option>Financement</option>
                     <option>Autre</option>

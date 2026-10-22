@@ -85,7 +85,7 @@ export default function Navbar() {
 
           {/* Mobile hamburger */}
           <button
-            className="md:hidden flex flex-col gap-[5px] p-2"
+            className="md:hidden flex flex-col justify-center items-center gap-[5px] w-11 h-11 -mr-2"
             onClick={() => setMenuOpen((v) => !v)}
             aria-label="Menu"
           >

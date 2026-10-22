@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion } from 'motion/react'
 import FavoriButton from '@/components/FavoriButton'
 import BadgeAutimmob from '@/components/BadgeAutimmob'
@@ -12,6 +12,29 @@ function formatPrice(price) {
 export default function VehicleClient({ car }) {
   const [contactOpen, setContactOpen] = useState(false)
   const [copied, setCopied] = useState(false)
+  const [showBar, setShowBar] = useState(false)
+
+  /* Barre d'action collante (mobile) : visible après la galerie, masquée quand la carte
+     contact ou le pied de page sont à l'écran pour ne rien recouvrir. */
+  useEffect(() => {
+    const card = document.getElementById('fiche-contact')
+    const footer = document.querySelector('footer')
+    if (!card || typeof IntersectionObserver === 'undefined') return
+    const vis = { card: false, footer: false, past: false }
+    const update = () => setShowBar(vis.past && !vis.card && !vis.footer)
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.target === card) vis.card = e.isIntersecting
+        else vis.footer = e.isIntersecting
+      })
+      update()
+    })
+    io.observe(card)
+    if (footer) io.observe(footer)
+    const onScroll = () => { vis.past = window.scrollY > 450; update() }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => { io.disconnect(); window.removeEventListener('scroll', onScroll) }
+  }, [])
 
   const handleShare = async () => {
     const url = typeof window !== 'undefined' ? window.location.href : ''
@@ -33,7 +56,9 @@ export default function VehicleClient({ car }) {
   }
 
   return (
+    <>
     <motion.aside
+      id="fiche-contact"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.55, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
@@ -116,7 +141,7 @@ export default function VehicleClient({ car }) {
           )}
 
           <a
-            href="/a-propos#financement"
+            href="/a-propos#rdv"
             className="flex items-center justify-center gap-2 w-full py-3 text-xs font-medium uppercase tracking-wider text-[#888] border border-[#E8E8E8] hover:border-[#CCC] hover:text-[#555] transition-colors duration-200"
           >
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -168,7 +193,7 @@ export default function VehicleClient({ car }) {
                 {car.vendeur === 'autimmob' ? 'Autimmob' : 'Particulier vérifié'}
               </p>
               <p className="text-xs text-[#888]">
-                {car.vendeur === 'autimmob' ? 'Marseille — Garage professionnel' : 'Annonce mandataire'}
+                {car.vendeur === 'autimmob' ? 'Saint-Martin-de-Crau — Garage professionnel' : 'Annonce mandataire'}
               </p>
             </div>
           </div>
@@ -192,7 +217,7 @@ export default function VehicleClient({ car }) {
       {/* RDV card */}
       <div className="mt-4 bg-[#F5F5F5] border border-[#E8E8E8] p-5">
         <p className="text-sm font-semibold text-[#111]">Voir le véhicule en vrai ?</p>
-        <p className="text-xs text-[#888] mt-1 mb-4">Prenez RDV à notre atelier à Marseille.</p>
+        <p className="text-xs text-[#888] mt-1 mb-4">Prenez RDV au garage à Saint-Martin-de-Crau.</p>
         <a
           href="/a-propos#rdv"
           className="block text-center text-xs font-medium uppercase tracking-wider text-[#111] border border-[#CCC] px-4 py-2.5 hover:bg-[#111] hover:text-white hover:border-[#111] transition-all duration-200"
@@ -201,5 +226,31 @@ export default function VehicleClient({ car }) {
         </a>
       </div>
     </motion.aside>
+
+    {/* Barre d'action collante — mobile uniquement */}
+    <div
+      inert={!showBar}
+      className={`lg:hidden fixed bottom-0 inset-x-0 z-40 flex items-center gap-3 bg-white/95 backdrop-blur border-t border-[#E8E8E8] px-4 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] transition-transform duration-300 ${
+        showBar ? 'translate-y-0' : 'translate-y-full'
+      }`}
+    >
+      <div className="min-w-0 flex-1">
+        <p className="font-serif text-2xl font-semibold leading-none text-[#111]">{formatPrice(car.prix)}</p>
+        <p className="mt-1 truncate text-[10px] uppercase tracking-wider text-[#888]">{car.marque} {car.modele}</p>
+      </div>
+      <a
+        href="#fiche-contact"
+        className="flex h-11 flex-shrink-0 items-center justify-center border border-[#111] px-4 text-[11px] font-medium uppercase tracking-wider text-[#111]"
+      >
+        Message
+      </a>
+      <a
+        href="tel:+33600000000"
+        className="flex h-11 flex-shrink-0 items-center justify-center bg-[#C0392B] px-5 text-[11px] font-medium uppercase tracking-wider text-white"
+      >
+        Appeler
+      </a>
+    </div>
+    </>
   )
 }

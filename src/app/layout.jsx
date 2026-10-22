@@ -17,9 +17,9 @@ const inter = Inter({
 })
 
 export const metadata = {
-  title: 'Autimmob — Garage Automobile Marseille',
+  title: 'Autimmob — Garage Automobile Saint-Martin-de-Crau',
   description:
-    'Garage automobile indépendant à Marseille. Spécialiste Porsche, youngtimers et sportives. Achat, vente, réparation et mandataire. Photos 360° sur chaque véhicule.',
+    'Garage automobile indépendant à Saint-Martin-de-Crau. Spécialiste Porsche, youngtimers et sportives. Achat, vente et mandataire. Photos 360° sur chaque véhicule.',
   keywords: 'garage automobile marseille, porsche, youngtimer, sportive, achat vente voiture',
 }
 

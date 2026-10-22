@@ -154,7 +154,7 @@ export default function CarCard({ car, index = 0 }) {
             {!isHoverDevice && (
               <button
                 onClick={unflip}
-                className="w-6 h-6 flex items-center justify-center text-white/40 hover:text-white transition-colors"
+                className="w-8 h-8 flex items-center justify-center text-white/40 hover:text-white transition-colors"
                 aria-label="Fermer"
               >
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none">

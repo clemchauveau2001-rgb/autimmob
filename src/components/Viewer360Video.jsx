@@ -22,7 +22,7 @@ async function fileExists(url) {
   }
 }
 
-export default function Viewer360Video({ src, label = 'Vidéo 360°' }) {
+export default function Viewer360Video({ src, label = 'Vidéo' }) {
   const containerRef = useRef(null)
   const viewerRef    = useRef(null)
   const [status, setStatus] = useState('checking')
@@ -56,10 +56,12 @@ export default function Viewer360Video({ src, label = 'Vidéo 360°' }) {
           { Viewer },
           { EquirectangularVideoAdapter },
           { VideoPlugin },
+          { GyroscopePlugin },
         ] = await Promise.all([
           import('@photo-sphere-viewer/core'),
           import('@photo-sphere-viewer/equirectangular-video-adapter'),
           import('@photo-sphere-viewer/video-plugin'),
+          import('@photo-sphere-viewer/gyroscope-plugin'),
         ])
 
         if (cancelled || !containerRef.current) return
@@ -75,10 +77,12 @@ export default function Viewer360Video({ src, label = 'Vidéo 360°' }) {
               progressbar: true,
               bigbutton:   true,
             }],
+            // le bouton gyroscope n'apparaît que sur les appareils compatibles
+            [GyroscopePlugin, { touchmove: true, absolutePosition: false, moveMode: 'smooth' }],
           ],
 
           // Contrôles dans la barre inférieure PSV
-          navbar: ['video-play', 'video-time', 'video-volume', 'zoom', 'fullscreen'],
+          navbar: ['video-play', 'video-time', 'video-volume', 'zoom', 'gyroscope', 'fullscreen'],
 
           touchmoveTwoFingers: false,
           mousewheel:          true,
@@ -108,7 +112,7 @@ export default function Viewer360Video({ src, label = 'Vidéo 360°' }) {
   }, [src])
 
   return (
-    <div className="relative aspect-[16/9] bg-[#0D0D0D] overflow-hidden">
+    <div className="relative aspect-[4/5] max-h-[75vh] w-full sm:aspect-[16/9] sm:max-h-none bg-[#0D0D0D] overflow-hidden">
 
       {/* Container PSV (toujours présent pour l'init) */}
       <div ref={containerRef} className="absolute inset-0" />
@@ -128,33 +132,20 @@ export default function Viewer360Video({ src, label = 'Vidéo 360°' }) {
 
       {/* ── Fichier manquant ── */}
       {status === 'missing' && (
-        <div className="absolute inset-0 bg-[#0D0D0D] flex flex-col items-center justify-center gap-5 z-10 px-10 text-center">
-
-          {/* Icône 360° */}
+        <div className="absolute inset-0 bg-[#0D0D0D] flex flex-col items-center justify-center gap-4 z-10 px-8 text-center">
           <div className="w-14 h-14 border border-white/10 rounded-full flex items-center justify-center">
             <svg width="26" height="26" viewBox="0 0 26 26" fill="none" className="text-white/25">
               <circle cx="13" cy="13" r="11" stroke="currentColor" strokeWidth="1.3"/>
               <ellipse cx="13" cy="13" rx="5" ry="11" stroke="currentColor" strokeWidth="1.3"/>
               <path d="M2 13h22" stroke="currentColor" strokeWidth="1.3"/>
-              <path d="M4.5 7.5C6.8 6 9.8 5 13 5s6.2 1 8.5 2.5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
-              <path d="M4.5 18.5C6.8 20 9.8 21 13 21s6.2-1 8.5-2.5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
             </svg>
           </div>
-
-          <div>
-            <p className="text-white/60 text-sm font-medium mb-1.5">Vidéo 360° bientôt disponible</p>
-            <p className="text-white/25 text-xs leading-relaxed max-w-sm">
-              Exportez votre vidéo MP4 équirectangulaire (Insta360 Studio, GoPro MAX…) et déposez-la ici :
-            </p>
-          </div>
-
-          <code className="text-[11px] text-[#C0392B]/80 bg-white/5 border border-white/10 px-4 py-2 font-mono tracking-wide">
-            /public/videos/porsche-360.mp4
-          </code>
-
-          <p className="text-white/20 text-[10px] uppercase tracking-widest">
-            Format attendu · MP4 équirectangulaire · H.264 ou H.265
-          </p>
+          <p className="text-white/60 text-sm font-medium">Vue {label.toLowerCase()} 360° bientôt disponible</p>
+          {process.env.NODE_ENV !== 'production' && (
+            <code className="text-[11px] text-[#C0392B]/80 bg-white/5 border border-white/10 px-4 py-2 font-mono tracking-wide break-all">
+              /public{src}
+            </code>
+          )}
         </div>
       )}
 

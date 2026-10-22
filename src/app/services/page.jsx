@@ -62,12 +62,12 @@ export default function ServicesPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             >
-              <span className="text-xs font-medium uppercase tracking-[0.25em] text-[#C0392B]">Notre atelier</span>
+              <span className="text-xs font-medium uppercase tracking-[0.25em] text-[#C0392B]">Nos services</span>
               <h1 className="font-serif text-[clamp(2.5rem,5vw,4rem)] font-semibold mt-3 leading-tight">
                 Nos services
               </h1>
               <p className="mt-4 text-[#888] max-w-xl leading-relaxed">
-                De la révision courante à la remise en état complète, notre équipe prend en charge votre véhicule avec le même soin qu'un modèle de collection.
+                Achat, vente, mandat de vente et financement : chaque véhicule est inspecté, remis en état et documenté avant d'être proposé, avec le même soin qu'un modèle de collection.
               </p>
             </motion.div>
           </div>
@@ -143,9 +143,9 @@ export default function ServicesPage() {
         {/* CTA */}
         <section className="bg-[#F5F5F5] border-t border-[#E8E8E8] py-16">
           <div className="max-w-7xl mx-auto px-6 text-center">
-            <h2 className="font-serif text-3xl font-semibold text-[#111] mb-4">Besoin d'un devis ?</h2>
+            <h2 className="font-serif text-3xl font-semibold text-[#111] mb-4">Une question ?</h2>
             <p className="text-[#888] mb-8 max-w-md mx-auto">
-              Contactez-nous ou prenez directement rendez-vous à notre atelier à Marseille.
+              Contactez-nous ou prenez directement rendez-vous au garage à Saint-Martin-de-Crau.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Link

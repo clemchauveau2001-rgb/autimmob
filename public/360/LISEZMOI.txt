@@ -1,0 +1,4 @@
+Photos 360° des voitures. Un dossier par voiture, nommé comme son "slug" dans src/lib/cars.js :
+  /public/360/<slug>/exterieur.jpg
+  /public/360/<slug>/interieur.jpg
+Puis dans la voiture : views360: photos360('<slug>')

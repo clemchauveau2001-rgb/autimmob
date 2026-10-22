@@ -112,7 +112,7 @@ function RdvForm() {
                       key={m}
                       type="button"
                       onClick={() => setMotif(m)}
-                      className={`text-xs font-medium px-3.5 py-1.5 border transition-all duration-150 ${
+                      className={`text-xs font-medium px-3.5 py-2.5 sm:py-1.5 border transition-all duration-150 ${
                         motif === m
                           ? 'bg-[#111] text-white border-[#111]'
                           : 'border-[#E8E8E8] text-[#555] hover:border-[#CCC]'
@@ -157,7 +157,7 @@ function RdvForm() {
                         key={h}
                         type="button"
                         onClick={() => setCreneau(h)}
-                        className={`py-2 text-xs font-semibold border transition-all duration-150 ${
+                        className={`py-3 sm:py-2 text-xs font-semibold border transition-all duration-150 ${
                           creneau === h
                             ? 'bg-[#111] text-white border-[#111]'
                             : 'border-[#E8E8E8] text-[#555] hover:border-[#CCC] hover:text-[#111]'
@@ -208,7 +208,7 @@ export default function RdvPage() {
                 Venez nous rencontrer
               </h1>
               <p className="mt-4 text-[#888] max-w-xl leading-relaxed">
-                Essai d'un véhicule, consultation mécanique ou remise de voiture — choisissez votre créneau directement dans notre agenda.
+                Visite et essai d'un véhicule, ou dépôt de votre voiture pour un mandat de vente — choisissez votre créneau directement dans notre agenda.
               </p>
             </motion.div>
           </div>
@@ -234,7 +234,7 @@ export default function RdvPage() {
                   </div>
                   <div>
                     <p className="text-sm font-semibold text-[#111]">Adresse</p>
-                    <p className="text-sm text-[#888] mt-0.5">Autimmob · Marseille, France</p>
+                    <p className="text-sm text-[#888] mt-0.5">Autimmob · Saint-Martin-de-Crau, France</p>
                     <p className="text-xs text-[#888] mt-0.5">Adresse complète communiquée par SMS après confirmation</p>
                   </div>
                 </div>

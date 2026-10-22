@@ -20,14 +20,14 @@ export default function Footer() {
               Aut<span className="text-[#C0392B]">i</span>mmob
             </span>
             <p className="mt-4 text-sm text-[#888] leading-relaxed">
-              Garage automobile indépendant à Marseille. Passion, expertise et honnêteté.
+              Garage automobile indépendant à Saint-Martin-de-Crau. Passion, expertise et honnêteté.
             </p>
             <p className="mt-4 text-xs text-[#555] uppercase tracking-wider">Spécialiste Porsche</p>
           </div>
 
           {/* Stock */}
           <div>
-            <h4 className="text-xs font-medium uppercase tracking-widest text-[#888] mb-4">Nos véhicules</h4>
+            <h4 className="font-sans! text-xs font-medium uppercase tracking-widest text-[#888] mb-4">Nos véhicules</h4>
             <ul className="space-y-2">
               {[
                 { href: '/#stock', label: 'Tout le stock' },
@@ -39,7 +39,7 @@ export default function Footer() {
                 <li key={item.label}>
                   <Link
                     href={item.href}
-                    className="text-sm text-[#888] hover:text-white transition-colors duration-200"
+                    className="inline-block py-2 md:py-0.5 text-sm text-[#888] hover:text-white transition-colors duration-200"
                   >
                     {item.label}
                   </Link>
@@ -50,19 +50,18 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="text-xs font-medium uppercase tracking-widest text-[#888] mb-4">Services</h4>
+            <h4 className="font-sans! text-xs font-medium uppercase tracking-widest text-[#888] mb-4">Services</h4>
             <ul className="space-y-2">
               {[
                 { href: '/services', label: 'Nos services' },
                 { href: '/a-propos#vendre', label: 'Vendre votre voiture' },
                 { href: '/rdv', label: 'Prendre RDV' },
-                { href: '/suivi', label: 'Suivi réparation' },
                 { href: '/favoris', label: 'Mes favoris' },
               ].map((item) => (
                 <li key={item.label}>
                   <Link
                     href={item.href}
-                    className="text-sm text-[#888] hover:text-white transition-colors duration-200"
+                    className="inline-block py-2 md:py-0.5 text-sm text-[#888] hover:text-white transition-colors duration-200"
                   >
                     {item.label}
                   </Link>
@@ -73,10 +72,10 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="text-xs font-medium uppercase tracking-widest text-[#888] mb-4">Contact</h4>
+            <h4 className="font-sans! text-xs font-medium uppercase tracking-widest text-[#888] mb-4">Contact</h4>
             <address className="not-italic space-y-2">
               <p className="text-sm text-[#888]">Autimmob</p>
-              <p className="text-sm text-[#888]">Marseille, France</p>
+              <p className="text-sm text-[#888]">Saint-Martin-de-Crau, France</p>
               <a
                 href="mailto:contact@autimmob.fr"
                 className="block text-sm text-[#888] hover:text-white transition-colors duration-200"
@@ -103,8 +102,11 @@ export default function Footer() {
 
         <div className="mt-16 pt-8 border-t border-[#222] flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-[#555]">
           <p>© {new Date().getFullYear()} Autimmob. Tous droits réservés.</p>
-          <p>
-            <a href="https://autimmob.fr" className="hover:text-[#888] transition-colors">
+          <p className="flex items-center gap-4">
+            <Link href="/cgv" className="inline-block py-2 hover:text-[#888] transition-colors">
+              CGV
+            </Link>
+            <a href="https://autimmob.fr" className="inline-block py-2 hover:text-[#888] transition-colors">
               autimmob.fr
             </a>
           </p>

@@ -7,7 +7,7 @@ const ITEMS = [
   'Youngtimers',
   'Sportives',
   'Photos 360°',
-  'Marseille',
+  'Saint-Martin-de-Crau',
   'Passion Automobile',
   'Achat · Vente',
   'Mandataire',

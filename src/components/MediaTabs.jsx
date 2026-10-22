@@ -108,31 +108,44 @@ export default function MediaTabs({ car }) {
           {activeTab === '360' && (
             <div>
 
-              {/* Sélecteur de vue si plusieurs vues */}
+              {/* Sélecteur de vue (vignettes) si plusieurs vues 360° */}
               {views360.length > 1 && (
-                <div className="flex gap-2 px-3 pt-3 pb-2 bg-[#111] border-b border-white/8">
-                  {views360.map((view) => (
-                    <button
-                      key={view.id}
-                      onClick={() => setSelected360(view.id)}
-                      className={`flex items-center gap-1.5 px-3.5 py-1.5 text-[10px] font-semibold uppercase tracking-widest transition-all duration-150 ${
-                        selected360 === view.id
-                          ? 'bg-[#C0392B] text-white'
-                          : 'bg-white/5 text-white/45 hover:text-white/70 border border-white/10'
-                      }`}
-                    >
-                      <Icon360 />
-                      {view.label}
-                    </button>
-                  ))}
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 p-2.5 sm:p-3 bg-[#111] border-b border-white/8">
+                  {views360.map((view) => {
+                    const active = current360?.id === view.id
+                    return (
+                      <button
+                        key={view.id}
+                        onClick={() => setSelected360(view.id)}
+                        aria-pressed={active}
+                        className={`relative flex items-center gap-3 px-3.5 py-3 text-left transition-all duration-150 border ${
+                          active
+                            ? 'bg-white/8 border-[#C0392B] text-white'
+                            : 'bg-white/[0.03] border-white/10 text-white/50 hover:text-white/80 hover:border-white/25'
+                        }`}
+                      >
+                        <span className={`flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center border ${
+                          active ? 'border-[#C0392B] text-[#C0392B]' : 'border-white/15'
+                        }`}>
+                          <Icon360 />
+                        </span>
+                        <span className="min-w-0">
+                          <span className="block text-[11px] font-semibold uppercase tracking-widest">{view.label}</span>
+                          {view.description && (
+                            <span className="hidden sm:block text-[10px] text-white/35 leading-snug mt-0.5 truncate">{view.description}</span>
+                          )}
+                        </span>
+                      </button>
+                    )
+                  })}
                 </div>
               )}
 
               {/* Viewer : vidéo MP4 équirectangulaire OU panorama image */}
               {current360 && (
                 current360.type === 'video'
-                  ? <Viewer360Video src={current360.source} label={current360.label} />
-                  : <Viewer360PSV   panorama={current360.panorama} />
+                  ? <Viewer360Video key={current360.id} src={current360.source} label={current360.label} />
+                  : <Viewer360PSV   key={current360.id} panorama={current360.panorama} label={current360.label} />
               )}
 
               {/* Barre d'infos */}
@@ -140,11 +153,12 @@ export default function MediaTabs({ car }) {
                 <div className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#C0392B] animate-pulse flex-shrink-0" />
                   <span className="text-[9px] font-medium uppercase tracking-widest text-white/35">
-                    Cliquer-glisser pour tourner · Molette pour zoomer · Plein écran disponible
+                    <span className="sm:hidden">Glissez pour tourner · Pincez pour zoomer</span>
+                    <span className="hidden sm:inline">Glisser pour tourner · Molette ou pincement pour zoomer · Plein écran disponible</span>
                   </span>
                 </div>
                 {current360 && (
-                  <span className="text-[9px] text-white/25 font-medium flex-shrink-0 ml-4">
+                  <span className="hidden sm:inline text-[9px] text-white/25 font-medium flex-shrink-0 ml-4">
                     {current360.label}
                   </span>
                 )}

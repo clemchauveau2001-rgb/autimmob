@@ -1,0 +1,4 @@
+Dépose ici les photos 360° de cette voiture :
+  exterieur.jpg
+  interieur.jpg   (optionnel)
+Format : JPG équirectangulaire (ratio 2:1), par ex. 7680x3840.

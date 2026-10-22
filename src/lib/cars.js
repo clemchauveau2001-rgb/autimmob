@@ -1,3 +1,19 @@
+/**
+ * Convention photos 360° — valable pour TOUTES les voitures.
+ * Déposer les fichiers dans /public/360/<slug>/ :
+ *   exterieur.jpg  et  interieur.jpg   (JPG équirectangulaire 2:1, ex. 7680×3840)
+ * puis, dans la voiture :  media: { ..., views360: photos360('<slug>') }
+ */
+export function photos360(slug, vues = ['exterieur', 'interieur']) {
+  const LABELS = { exterieur: 'Extérieur', interieur: 'Intérieur' }
+  return vues.map((v) => ({
+    id: v,
+    label: LABELS[v] ?? v,
+    type: 'photo',
+    panorama: `/360/${slug}/${v}.jpg`,
+  }))
+}
+
 export const cars = [
   {
     id: '1',
@@ -54,10 +70,17 @@ export const cars = [
       views360: [
         {
           id: 'ext',
-          label: 'Extérieur 360°',
-          type: 'video',                           // → Viewer360Video (PSV VideoPlugin)
-          source: '/videos/porsche-360.mp4',       // déposer dans /public/videos/
-          description: 'Exploration complète de la carrosserie en vidéo 360° interactive',
+          label: 'Extérieur',
+          type: 'video',                                        // → Viewer360Video (PSV VideoPlugin)
+          source: '/videos/porsche-911-exterieur-360.mp4',      // déposer dans /public/videos/
+          description: 'Tour complet de la carrosserie',
+        },
+        {
+          id: 'int',
+          label: 'Intérieur',
+          type: 'video',
+          source: '/videos/porsche-911-interieur-360.mp4',      // déposer dans /public/videos/
+          description: 'Habitacle, tableau de bord et sièges',
         },
       ],
       videos: [],   // onglet "Vidéo" masqué — à remplir quand une vidéo de présentation sera disponible

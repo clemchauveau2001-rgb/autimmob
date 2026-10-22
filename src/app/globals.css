@@ -20,6 +20,11 @@ html {
   scroll-behavior: smooth;
 }
 
+html {
+  /* Empêche tout débordement horizontal (animations d'entrée décalées, etc.) */
+  overflow-x: hidden;
+}
+
 body {
   background: #ffffff;
   color: #111111;

@@ -46,12 +46,12 @@ function CountBlock({ value, label }) {
   return (
     <div className="flex flex-col items-center gap-2.5">
       <div
-        className="font-[family-name:var(--font-cormorant)] text-[3.8rem] sm:text-[5rem] font-light text-white leading-none tabular-nums"
-        style={{ minWidth: '2.4ch', textAlign: 'center' }}
+        className="font-[family-name:var(--font-cormorant)] text-[2.7rem] min-[400px]:text-[3.2rem] sm:text-[5rem] font-light text-white leading-none tabular-nums"
+        style={{ minWidth: '2.2ch', textAlign: 'center' }}
       >
         <FlipDigit value={value} />
       </div>
-      <span className="font-[family-name:var(--font-inter)] text-[9px] sm:text-[10px] font-medium tracking-[0.3em] text-[#888] uppercase">
+      <span className="font-[family-name:var(--font-inter)] text-[8px] min-[400px]:text-[9px] sm:text-[10px] font-medium tracking-[0.14em] min-[400px]:tracking-[0.2em] sm:tracking-[0.3em] text-[#888] uppercase">
         {label}
       </span>
     </div>
@@ -62,7 +62,7 @@ function CountBlock({ value, label }) {
 function Sep() {
   return (
     <span
-      className="font-[family-name:var(--font-cormorant)] text-[2.4rem] sm:text-[3.2rem] font-light text-[#C0392B] leading-none self-start mt-1"
+      className="font-[family-name:var(--font-cormorant)] text-[1.6rem] min-[400px]:text-[2rem] sm:text-[3.2rem] font-light text-[#C0392B] leading-none self-start mt-0.5"
       aria-hidden="true"
     >
       :
@@ -121,7 +121,7 @@ export default function ComingSoon() {
           transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           className="text-center"
         >
-          <h1 className="font-[family-name:var(--font-cormorant)] text-[2.8rem] sm:text-[3.6rem] font-light tracking-[0.22em] text-white uppercase leading-none">
+          <h1 className="font-[family-name:var(--font-cormorant)] text-[2.2rem] min-[400px]:text-[2.8rem] sm:text-[3.6rem] font-light tracking-[0.2em] sm:tracking-[0.22em] text-white uppercase leading-none">
             Autimmob
           </h1>
 
@@ -140,7 +140,7 @@ export default function ComingSoon() {
         </motion.div>
 
         {/* Compte à rebours */}
-        <div className="flex items-start gap-4 sm:gap-7 mt-2">
+        <div className="flex items-start gap-1.5 min-[400px]:gap-3 sm:gap-7 mt-2">
           {[
             { value: days,    label: 'Jours',    i: 0 },
             { value: hours,   label: 'Heures',   i: 1 },
@@ -152,7 +152,7 @@ export default function ComingSoon() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.5 + i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="flex items-start gap-4 sm:gap-7"
+              className="flex items-start gap-1.5 min-[400px]:gap-3 sm:gap-7"
             >
               <CountBlock value={value} label={label} />
               {i < 3 && <Sep />}

@@ -108,6 +108,12 @@ export default async function VehiclePage({ params }) {
                 {car.annee} · {formatKm(car.km)} · {car.moteur}
               </p>
 
+              {/* Prix — visible tout de suite sur mobile (sur grand écran il est dans la colonne de droite) */}
+              <div className="mt-5 flex items-baseline gap-2 lg:hidden">
+                <p className="font-serif text-[2rem] font-semibold leading-none text-[#111]">{formatPrice(car.prix)}</p>
+                <p className="text-xs text-[#888]">TTC</p>
+              </div>
+
               {/* Specs grid */}
               <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 gap-px bg-[#E8E8E8]">
                 {specs.map((spec) => (

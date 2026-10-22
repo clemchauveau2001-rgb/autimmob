@@ -13,12 +13,12 @@ export default function CarFilters() {
   return (
     <div>
       {/* Filter tabs */}
-      <div className="flex flex-wrap gap-2 mb-10">
+      <div className="flex gap-2 mb-10 overflow-x-auto sm:flex-wrap sm:overflow-visible scrollbar-hide -mx-6 px-6 sm:mx-0 sm:px-0">
         {CATEGORIES.map((cat) => (
           <button
             key={cat.id}
             onClick={() => setActive(cat.id)}
-            className={`relative text-xs font-medium uppercase tracking-widest px-5 py-2.5 transition-all duration-200 ${
+            className={`relative flex-shrink-0 whitespace-nowrap text-xs font-medium uppercase tracking-widest px-5 py-2.5 transition-all duration-200 ${
               active === cat.id
                 ? 'text-white'
                 : 'text-[#555] border border-[#E8E8E8] hover:border-[#CCC] hover:text-[#111]'

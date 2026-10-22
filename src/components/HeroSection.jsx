@@ -78,7 +78,7 @@ export default function HeroSection() {
               variants={fadeUp}
               className="inline-block text-xs font-medium uppercase tracking-[0.25em] text-[#888] mb-6"
             >
-              Garage automobile · Marseille
+              Garage automobile · Saint-Martin-de-Crau
             </motion.span>
 
             {/* Title with rotateX perspective effect */}
@@ -99,7 +99,7 @@ export default function HeroSection() {
               variants={fadeUp}
               className="mt-6 text-base md:text-lg text-[#555] leading-relaxed max-w-md"
             >
-              Achat, vente, réparation et mandataire. Spécialiste Porsche, youngtimers et sportives à Marseille — avec photo 360° sur chaque véhicule.
+              Achat, vente et mandataire. Spécialiste Porsche, youngtimers et sportives à Saint-Martin-de-Crau — avec photo 360° sur chaque véhicule.
             </motion.p>
 
             <motion.div variants={fadeUp} className="mt-8 flex flex-wrap gap-3">
@@ -120,7 +120,7 @@ export default function HeroSection() {
             {/* Stats with count-up */}
             <motion.div
               variants={fadeUp}
-              className="mt-10 flex flex-wrap gap-8 pt-8 border-t border-[#E8E8E8]"
+              className="mt-10 grid grid-cols-3 gap-4 sm:flex sm:flex-wrap sm:gap-8 pt-8 border-t border-[#E8E8E8]"
             >
               <StatItem end={47} suffix="+" label="Véhicules remis en état" delay={0.6} />
               <StatItem end={360} suffix="°" label="Technologie exclusive" delay={0.7} />
@@ -140,7 +140,7 @@ export default function HeroSection() {
             <div className="relative overflow-hidden shadow-2xl shadow-black/20" style={{ aspectRatio: '4/3' }}>
               <Image
                 src="/hero.jpg"
-                alt="Porsche 911 Turbo Cabriolet — Autimmob Marseille"
+                alt="Porsche 911 Turbo Cabriolet — Autimmob Saint-Martin-de-Crau"
                 fill
                 priority
                 className="object-cover"

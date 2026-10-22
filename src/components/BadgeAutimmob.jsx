@@ -46,7 +46,7 @@ export default function BadgeAutimmob({ size = 'sm' }) {
           >
             <p className="text-[10px] font-semibold uppercase tracking-widest text-[#C0392B] mb-1.5">Garantie Autimmob</p>
             <p className="text-xs text-white/75 leading-relaxed">
-              Ce véhicule a été contrôlé et préparé dans notre atelier à Marseille. Diagnostic complet, remise en état documentée.
+              Ce véhicule a été contrôlé et préparé dans notre atelier à Saint-Martin-de-Crau. Diagnostic complet, remise en état documentée.
             </p>
             {/* Arrow */}
             <span className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-[#111]" />
