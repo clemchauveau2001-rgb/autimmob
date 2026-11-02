@@ -26,7 +26,7 @@ export default function YouTube360({ videoId }) {
         <iframe
           className="absolute inset-0 w-full h-full"
           src={src}
-          title="Visite 360° — Porsche 911 SC Targa"
+          title="Visite 360°"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           referrerPolicy="strict-origin-when-cross-origin"

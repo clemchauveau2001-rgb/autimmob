@@ -11,7 +11,7 @@ import ReviewCarousel from '@/components/ReviewCarousel'
 export const metadata = {
   title: 'Autimmob — Garage Automobile Saint-Martin-de-Crau',
   description:
-    'Garage automobile indépendant à Saint-Martin-de-Crau. Spécialiste Porsche, youngtimers et sportives. Achat, vente et mandataire. Photos 360° sur chaque véhicule.',
+    'Garage automobile indépendant à Saint-Martin-de-Crau. Youngtimers et sportives. Achat, vente et mandataire. Photos 360° sur chaque véhicule.',
 }
 
 export default function Home() {

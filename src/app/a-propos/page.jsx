@@ -61,8 +61,8 @@ const SERVICES = [
         <circle cx="14" cy="14" r="3" stroke="#C0392B" strokeWidth="1.5" />
       </svg>
     ),
-    title: 'Spécialiste Porsche',
-    desc: 'Préparation, recherche et sélection de véhicules. Pascal connaît les Porsche par passion — chaque modèle, chaque particularité mécanique, chaque point d\'attention.',
+    title: 'Sélection & préparation',
+    desc: 'Préparation, recherche et sélection de véhicules. Pascal connaît ces voitures par passion — chaque modèle, chaque particularité mécanique, chaque point d\'attention.',
   },
   {
     icon: (
@@ -81,7 +81,7 @@ const TEAM = [
     initials: 'P.C',
     name: 'Pascal',
     role: 'Fondateur & Mécanicien',
-    desc: 'Mécanicien passionné depuis toujours, spécialiste Porsche par amour — pas par obligation. Pascal chine et remet en état des véhicules depuis des années. Il connaît ces voitures dans les moindres détails, démonte un flat-six les yeux fermés, et ne vend que ce qu\'il validerait pour lui-même. Autimmob, c\'est son atelier, son projet, son identité.',
+    desc: 'Mécanicien passionné depuis toujours, par amour des belles mécaniques. Pascal chine et remet en état des véhicules depuis des années. Il connaît ces voitures dans les moindres détails, et ne vend que ce qu\'il validerait pour lui-même. Autimmob, c\'est son atelier, son projet, son identité.',
   },
 ]
 
@@ -111,7 +111,7 @@ export default function AboutPage() {
                 de la passion.
               </motion.h1>
               <motion.p variants={fadeUp} className="mt-6 text-[#555] leading-relaxed max-w-lg">
-                Autimmob, c'est le projet de Pascal — mécanicien de passion, spécialiste Porsche, qui chine et remet en état des véhicules depuis toujours. Il a toujours eu les mains dans le moteur, l'œil pour repérer le bon véhicule, et la rigueur pour le rendre impeccable avant de le vendre.
+                Autimmob, c'est le projet de Pascal — mécanicien de passion, qui chine et remet en état des véhicules depuis toujours. Il a toujours eu les mains dans le moteur, l'œil pour repérer le bon véhicule, et la rigueur pour le rendre impeccable avant de le vendre.
               </motion.p>
               <motion.p variants={fadeUp} className="mt-4 text-[#555] leading-relaxed max-w-lg">
                 Pas un garage comme les autres. Un endroit où chaque voiture est traitée avec soin, documentée avec honnêteté, et vendue à des passionnés ou à des personnes qui méritent simplement un véhicule fiable.
@@ -211,7 +211,7 @@ export default function AboutPage() {
                 l'excellence mécanique.
               </h2>
               <p className="mt-5 text-[#555] leading-relaxed">
-                Notre atelier à Saint-Martin-de-Crau nous permet de préparer nous-mêmes chaque véhicule avant sa mise en vente : vidanges, distributions, freins, diagnostics électroniques, préparations Porsche.
+                Notre atelier à Saint-Martin-de-Crau nous permet de préparer nous-mêmes chaque véhicule avant sa mise en vente : vidanges, distributions, freins, diagnostics électroniques.
               </p>
               <p className="mt-4 text-[#555] leading-relaxed">
                 Nous travaillons avec des équipements professionnels et des pièces de qualité. Chaque intervention est consignée dans l'historique de remise en état du véhicule.
@@ -219,7 +219,7 @@ export default function AboutPage() {
               <div className="mt-8 grid grid-cols-2 gap-4">
                 {[
                   { value: '25 ans', label: 'd\'expérience mécanique' },
-                  { value: 'Porsche', label: 'Spécialiste reconnu' },
+                  { value: 'Atelier', label: 'Préparation sur place' },
                   { value: 'Crau', label: 'Saint-Martin-de-Crau' },
                   { value: '360°', label: 'Documentation visuelle' },
                 ].map((stat) => (

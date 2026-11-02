@@ -3,7 +3,6 @@
 import { motion } from 'motion/react'
 
 const ITEMS = [
-  'Spécialiste Porsche',
   'Youngtimers',
   'Sportives',
   'Photos 360°',

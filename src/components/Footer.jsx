@@ -22,7 +22,6 @@ export default function Footer() {
             <p className="mt-4 text-sm text-[#888] leading-relaxed">
               Garage automobile indépendant à Saint-Martin-de-Crau. Passion, expertise et honnêteté.
             </p>
-            <p className="mt-4 text-xs text-[#555] uppercase tracking-wider">Spécialiste Porsche</p>
           </div>
 
           {/* Stock */}
@@ -31,7 +30,6 @@ export default function Footer() {
             <ul className="space-y-2">
               {[
                 { href: '/#stock', label: 'Tout le stock' },
-                { href: '/#stock', label: 'Collection Porsche' },
                 { href: '/#stock', label: 'Youngtimers' },
                 { href: '/#stock', label: 'Sportives' },
                 { href: '/#stock', label: 'Accessibles' },

@@ -6,57 +6,8 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import CarSilhouette from '@/components/CarSilhouette'
 
-const BIENTOT = [
-  {
-    id: 'b1',
-    marque: 'Porsche',
-    modele: '944 S2',
-    annee: 1990,
-    prix_estime: '~22 000 €',
-    moteur: '3.0L 4-cylindres',
-    puissance: '211 ch',
-    couleur: 'Argent',
-    statut: 'En cours de remise en état',
-    delai: 'Disponible mi-juin',
-    description: 'Un 944 S2 dans un état de conservation remarquable. Moteur 3.0L atmosphérique en pleine forme, carrosserie saine. En cours de préparation dans notre atelier.',
-    category_color: '#C0392B',
-    category_bg: '#fef2f2',
-    category_label: 'Porsche',
-  },
-  {
-    id: 'b2',
-    marque: 'BMW',
-    modele: '2002 Turbo',
-    annee: 1974,
-    prix_estime: 'Sur estimation',
-    moteur: '2.0L Turbo',
-    puissance: '170 ch',
-    couleur: 'Blanc Polaire',
-    statut: 'Récemment acquis',
-    delai: 'Disponible fin juin',
-    description: 'Le mythique 2002 Turbo, première voiture turbo produite en série en Europe. Vient d\'être acquis, diagnostic en cours. Un vrai collector.',
-    category_color: '#1e3a5f',
-    category_bg: '#eff6ff',
-    category_label: 'Youngtimer',
-  },
-  {
-    id: 'b3',
-    marque: 'Alfa Romeo',
-    modele: 'GTV 916',
-    annee: 1997,
-    prix_estime: '~12 500 €',
-    moteur: '2.0L Twin Spark',
-    puissance: '150 ch',
-    couleur: 'Rouge Alfa',
-    statut: 'Arrivée imminente',
-    delai: 'Disponible semaine prochaine',
-    description: 'GTV 916 en excellent état, carnet complet. Une des plus belles lignes de l\'époque signée Pininfarina. Presque prête, dernières vérifications en cours.',
-    category_color: '#92400e',
-    category_bg: '#fffbeb',
-    category_label: 'Youngtimer',
-    soon: true,
-  },
-]
+// Véhicules qui arrivent bientôt (à remplir avec de vrais véhicules)
+const BIENTOT = []
 
 const STATUT_CONFIG = {
   'Arrivée imminente':       { dot: 'bg-[#C0392B] animate-pulse', text: 'text-[#C0392B]' },

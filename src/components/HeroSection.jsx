@@ -99,7 +99,7 @@ export default function HeroSection() {
               variants={fadeUp}
               className="mt-6 text-base md:text-lg text-[#555] leading-relaxed max-w-md"
             >
-              Achat, vente et mandataire. Spécialiste Porsche, youngtimers et sportives à Saint-Martin-de-Crau — avec photo 360° sur chaque véhicule.
+              Achat, vente et mandataire. Youngtimers et sportives à Saint-Martin-de-Crau — avec photo 360° sur chaque véhicule.
             </motion.p>
 
             <motion.div variants={fadeUp} className="mt-8 flex flex-wrap gap-3">
@@ -140,7 +140,7 @@ export default function HeroSection() {
             <div className="relative overflow-hidden shadow-2xl shadow-black/20" style={{ aspectRatio: '4/3' }}>
               <Image
                 src="/hero.jpg"
-                alt="Porsche 911 Turbo Cabriolet — Autimmob Saint-Martin-de-Crau"
+                alt="Autimmob — Garage automobile à Saint-Martin-de-Crau"
                 fill
                 priority
                 className="object-cover"
@@ -152,15 +152,6 @@ export default function HeroSection() {
 
             {/* Trait rouge décoratif */}
             <div className="absolute -bottom-3 -right-3 w-full h-full border border-[#C0392B]/30 pointer-events-none" style={{ aspectRatio: '4/3' }} />
-
-            {/* Badge Spécialiste Porsche */}
-            <motion.div
-              className="absolute top-4 -left-4 bg-white border border-[#E8E8E8] shadow-lg px-3 py-1.5 text-xs font-semibold text-[#C0392B] uppercase tracking-widest"
-              animate={{ y: [0, -5, 0] }}
-              transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
-            >
-              Spécialiste Porsche
-            </motion.div>
 
           </motion.div>
 
