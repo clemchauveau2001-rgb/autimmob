@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
-import { REVIEWS, REVIEW_LINKS, REVIEW_EMAIL } from '@/lib/reviews'
+import { REVIEWS, REVIEW_LINKS } from '@/lib/reviews'
+import { sendContact } from '@/lib/sendContact'
 
 function Stars({ n, size = 12 }) {
   return (
@@ -21,14 +22,25 @@ function ReviewForm() {
   const [name, setName] = useState('')
   const [car, setCar] = useState('')
   const [text, setText] = useState('')
-  const [sent, setSent] = useState(false)
+  const [status, setStatus] = useState('idle')
+  const [error, setError] = useState('')
 
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault()
-    const subject = `Avis client — ${note}/5`
-    const body = `Note : ${note}/5\nNom : ${name}\nVéhicule : ${car || '—'}\n\n${text}\n\n(J'autorise Autimmob à publier cet avis sur son site.)`
-    window.location.href = `mailto:${REVIEW_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
-    setSent(true)
+    const website = new FormData(e.currentTarget).get('website')
+    setStatus('sending')
+    const res = await sendContact(
+      'avis',
+      { note: `${note}/5`, prenom: name, vehicule: car, message: `${text}\n\n(Autorise Autimmob à publier cet avis sur son site.)` },
+      website,
+    )
+    if (res.ok) {
+      setStatus('sent')
+      setName(''); setCar(''); setText('')
+    } else {
+      setError(res.error)
+      setStatus('error')
+    }
   }
 
   const field =
@@ -36,6 +48,7 @@ function ReviewForm() {
 
   return (
     <form onSubmit={submit} className="bg-white border border-[#E8E8E8] p-6 sm:p-8 text-left space-y-4">
+      <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
       <div>
         <p className="text-xs font-medium uppercase tracking-widest text-[#888] mb-2">Votre note</p>
         <div className="flex gap-1" role="radiogroup" aria-label="Note sur 5">
@@ -63,11 +76,12 @@ function ReviewForm() {
       <textarea className={field} required rows={4} placeholder="Racontez votre expérience avec Autimmob…" value={text} onChange={(e) => setText(e.target.value)} />
       <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:justify-between">
         <p className="text-xs text-[#888]">Votre avis est relu par Autimmob avant d'être publié.</p>
-        <button type="submit" className="text-xs font-medium uppercase tracking-wider text-white bg-[#111] px-6 py-3 hover:bg-[#C0392B] transition-colors duration-200">
-          Envoyer mon avis
+        <button type="submit" disabled={status === 'sending'} className="text-xs font-medium uppercase tracking-wider text-white bg-[#111] px-6 py-3 hover:bg-[#C0392B] transition-colors duration-200">
+          {status === 'sending' ? 'Envoi…' : 'Envoyer mon avis'}
         </button>
       </div>
-      {sent && <p className="text-sm text-[#14532d]">Votre application de messagerie s'est ouverte : il ne reste qu'à envoyer le mail. Merci !</p>}
+      {status === 'sent' && <p className="text-sm text-[#14532d]">Merci ! Votre avis a bien été envoyé, il sera publié après relecture.</p>}
+      {status === 'error' && <p className="text-sm text-[#C0392B]">{error}</p>}
     </form>
   )
 }

@@ -1,10 +1,13 @@
 'use client'
 
+import { useState } from 'react'
 import { motion } from 'motion/react'
 import Link from 'next/link'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import CarSilhouette from '@/components/CarSilhouette'
+import EstimationModal from '@/components/EstimationModal'
+import { sendContact } from '@/lib/sendContact'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -86,6 +89,27 @@ const TEAM = [
 ]
 
 export default function AboutPage() {
+  const [estimOpen, setEstimOpen] = useState(false)
+  const [contactStatus, setContactStatus] = useState('idle')
+  const [contactError, setContactError] = useState('')
+
+  const submitContact = async (e) => {
+    e.preventDefault()
+    const form = e.currentTarget
+    const fields = Object.fromEntries(new FormData(form).entries())
+    const website = fields.website
+    delete fields.website
+    setContactStatus('sending')
+    const res = await sendContact('contact', fields, website)
+    if (res.ok) {
+      setContactStatus('sent')
+      form.reset()
+    } else {
+      setContactError(res.error)
+      setContactStatus('error')
+    }
+  }
+
   return (
     <>
       <Navbar />
@@ -424,19 +448,19 @@ export default function AboutPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.55, delay: 0.1 }}
               >
-                <form
-                  className="space-y-4"
-                  onSubmit={(e) => { e.preventDefault(); alert('Message envoyé ! Nous vous répondrons rapidement.') }}
-                >
+                <form className="space-y-4" onSubmit={submitContact}>
+                  <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
                   <div className="grid grid-cols-2 gap-4">
                     <input
                       type="text"
+                      name="prenom"
                       placeholder="Prénom"
                       required
                       className="border border-[#E8E8E8] bg-white px-4 py-3 text-sm focus:outline-none focus:border-[#111] transition-colors"
                     />
                     <input
                       type="text"
+                      name="nom"
                       placeholder="Nom"
                       required
                       className="border border-[#E8E8E8] bg-white px-4 py-3 text-sm focus:outline-none focus:border-[#111] transition-colors"
@@ -444,16 +468,18 @@ export default function AboutPage() {
                   </div>
                   <input
                     type="email"
+                    name="email"
                     placeholder="Adresse email"
                     required
                     className="w-full border border-[#E8E8E8] bg-white px-4 py-3 text-sm focus:outline-none focus:border-[#111] transition-colors"
                   />
                   <input
                     type="tel"
+                    name="telephone"
                     placeholder="Téléphone (optionnel)"
                     className="w-full border border-[#E8E8E8] bg-white px-4 py-3 text-sm focus:outline-none focus:border-[#111] transition-colors"
                   />
-                  <select className="w-full border border-[#E8E8E8] bg-white px-4 py-3 text-sm focus:outline-none focus:border-[#111] transition-colors text-[#555]">
+                  <select name="motif" className="w-full border border-[#E8E8E8] bg-white px-4 py-3 text-sm focus:outline-none focus:border-[#111] transition-colors text-[#555]">
                     <option value="">Motif de contact</option>
                     <option>Visite d'un véhicule</option>
                     <option>Vendre ma voiture</option>
@@ -462,6 +488,8 @@ export default function AboutPage() {
                     <option>Autre</option>
                   </select>
                   <textarea
+                    name="message"
+                    required
                     placeholder="Votre message"
                     rows={4}
                     className="w-full border border-[#E8E8E8] bg-white px-4 py-3 text-sm focus:outline-none focus:border-[#111] transition-colors resize-none"
@@ -470,8 +498,10 @@ export default function AboutPage() {
                     type="submit"
                     className="w-full py-3.5 bg-[#111] text-white text-sm font-medium uppercase tracking-wider hover:bg-[#C0392B] transition-colors duration-300"
                   >
-                    Envoyer le message
+                    {contactStatus === 'sending' ? 'Envoi…' : 'Envoyer le message'}
                   </button>
+                  {contactStatus === 'sent' && <p className="text-sm text-[#14532d]">Message envoyé ! Nous vous répondrons rapidement.</p>}
+                  {contactStatus === 'error' && <p className="text-sm text-[#C0392B]">{contactError}</p>}
                 </form>
               </motion.div>
             </div>
@@ -502,18 +532,20 @@ export default function AboutPage() {
                   </li>
                 ))}
               </ul>
-              <a
-                href="mailto:contact@autimmob.fr?subject=Estimation de ma voiture"
+              <button
+                type="button"
+                onClick={() => setEstimOpen(true)}
                 className="inline-block mt-8 text-sm font-medium uppercase tracking-wider text-white border border-white/30 px-6 py-3 hover:bg-white hover:text-[#111] transition-all duration-300"
               >
                 Demander une estimation →
-              </a>
+              </button>
             </div>
           </div>
         </section>
       </main>
 
       <Footer />
+      <EstimationModal open={estimOpen} onClose={() => setEstimOpen(false)} />
     </>
   )
 }

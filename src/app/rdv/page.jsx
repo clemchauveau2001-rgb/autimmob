@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'motion/react'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
+import { sendContact } from '@/lib/sendContact'
 
 const MOTIFS = ['Essai d\'un véhicule', 'Remise de véhicule', 'Vendre ma voiture', 'Autre']
 
@@ -36,9 +37,25 @@ function RdvForm() {
   const [date, setDate] = useState('')
   const [creneau, setCreneau] = useState('')
 
-  const handleSubmit = (e) => {
+  const [status, setStatus] = useState('idle')
+  const [error, setError] = useState('')
+
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    setSent(true)
+    const fields = Object.fromEntries(new FormData(e.currentTarget).entries())
+    const website = fields.website
+    delete fields.website
+    fields.motif = motif
+    fields.date = date
+    fields.creneau = creneau
+    setStatus('sending')
+    const res = await sendContact('rdv', fields, website)
+    if (res.ok) {
+      setSent(true)
+    } else {
+      setError(res.error)
+      setStatus('error')
+    }
   }
 
   const creneaux = getCreneaux(date)
@@ -79,15 +96,16 @@ function RdvForm() {
               onSubmit={handleSubmit}
               className="space-y-5"
             >
+              <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
               {/* Nom + Prénom */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-[10px] font-medium uppercase tracking-widest text-[#888] mb-1.5">Prénom</label>
-                  <input required type="text" placeholder="Jean" className="w-full border border-[#E8E8E8] px-3.5 py-2.5 text-sm focus:outline-none focus:border-[#111] transition-colors" />
+                  <input required name="prenom" type="text" placeholder="Jean" className="w-full border border-[#E8E8E8] px-3.5 py-2.5 text-sm focus:outline-none focus:border-[#111] transition-colors" />
                 </div>
                 <div>
                   <label className="block text-[10px] font-medium uppercase tracking-widest text-[#888] mb-1.5">Nom</label>
-                  <input required type="text" placeholder="Dupont" className="w-full border border-[#E8E8E8] px-3.5 py-2.5 text-sm focus:outline-none focus:border-[#111] transition-colors" />
+                  <input required name="nom" type="text" placeholder="Dupont" className="w-full border border-[#E8E8E8] px-3.5 py-2.5 text-sm focus:outline-none focus:border-[#111] transition-colors" />
                 </div>
               </div>
 
@@ -95,11 +113,11 @@ function RdvForm() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-[10px] font-medium uppercase tracking-widest text-[#888] mb-1.5">Téléphone</label>
-                  <input required type="tel" placeholder="06 00 00 00 00" className="w-full border border-[#E8E8E8] px-3.5 py-2.5 text-sm focus:outline-none focus:border-[#111] transition-colors" />
+                  <input required name="telephone" type="tel" placeholder="06 00 00 00 00" className="w-full border border-[#E8E8E8] px-3.5 py-2.5 text-sm focus:outline-none focus:border-[#111] transition-colors" />
                 </div>
                 <div>
                   <label className="block text-[10px] font-medium uppercase tracking-widest text-[#888] mb-1.5">Email</label>
-                  <input required type="email" placeholder="jean@email.fr" className="w-full border border-[#E8E8E8] px-3.5 py-2.5 text-sm focus:outline-none focus:border-[#111] transition-colors" />
+                  <input required name="email" type="email" placeholder="jean@email.fr" className="w-full border border-[#E8E8E8] px-3.5 py-2.5 text-sm focus:outline-none focus:border-[#111] transition-colors" />
                 </div>
               </div>
 
@@ -173,15 +191,16 @@ function RdvForm() {
               {/* Message */}
               <div>
                 <label className="block text-[10px] font-medium uppercase tracking-widest text-[#888] mb-1.5">Message (optionnel)</label>
-                <textarea rows={3} placeholder="Précisez votre demande..." className="w-full border border-[#E8E8E8] px-3.5 py-2.5 text-sm focus:outline-none focus:border-[#111] transition-colors resize-none" />
+                <textarea name="message" rows={3} placeholder="Précisez votre demande..." className="w-full border border-[#E8E8E8] px-3.5 py-2.5 text-sm focus:outline-none focus:border-[#111] transition-colors resize-none" />
               </div>
 
               <button
                 type="submit"
                 className="w-full py-3.5 bg-[#C0392B] text-white text-xs font-semibold uppercase tracking-widest hover:bg-[#a93226] transition-colors duration-200"
               >
-                Envoyer ma demande
+                {status === 'sending' ? 'Envoi…' : 'Envoyer ma demande'}
               </button>
+              {status === 'error' && <p className="text-sm text-[#C0392B]">{error}</p>}
             </motion.form>
           )}
         </AnimatePresence>
