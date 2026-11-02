@@ -51,10 +51,10 @@ export default function Section360() {
               ))}
             </ul>
             <Link
-              href="/voiture/porsche-911-sc-targa-1982"
+              href="/#stock"
               className="inline-block mt-8 text-xs font-medium uppercase tracking-widest text-white border border-white/30 px-6 py-3 hover:bg-white hover:text-[#111] transition-all duration-300"
             >
-              Essayer sur la 911 →
+              Voir le stock →
             </Link>
           </motion.div>
 

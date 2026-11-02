@@ -80,7 +80,7 @@ export default function CGVPage() {
           <div className="border border-[#E8E8E8] bg-[#F5F5F5] p-6 text-sm text-[#555] leading-relaxed">
             <p className="font-medium text-[#111]">AUTIMMOB SAS — Capital : 10 000 €</p>
             <p>Siège social : 22 rue Folco de Baroncelli, 13310 Saint-Martin-de-Crau</p>
-            <p>RCS Tarascon — SIREN : [En cours d&apos;immatriculation]</p>
+            <p>RCS Tarascon — SIREN : 130 820 376</p>
             <p>
               Téléphone : [Votre numéro] — E-mail :{' '}
               <a href="mailto:contact@autimmob.fr" className="text-[#C0392B] hover:underline">

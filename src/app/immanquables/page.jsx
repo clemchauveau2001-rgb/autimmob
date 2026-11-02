@@ -12,44 +12,8 @@ import { cars } from '@/lib/cars'
 const ACCESSIBLES = cars.filter((c) => c.category === 'immanquable')
 
 // Sélections budget à venir
-const BONS_PLANS = [
-  {
-    id: 'bp1',
-    marque: 'Peugeot',
-    modele: '206 CC',
-    annee: 2004,
-    prix: '~3 500 €',
-    moteur: '1.6L 16V',
-    puissance: '110 ch',
-    km: '142 000 km',
-    description: 'Cabriolet compact fiable, toit électrique fonctionnel. Idéal pour l\'été.',
-    badge: 'Bientôt',
-  },
-  {
-    id: 'bp2',
-    marque: 'Citroën',
-    modele: 'C3 Pluriel',
-    annee: 2005,
-    prix: '~2 800 €',
-    moteur: '1.4L',
-    puissance: '75 ch',
-    km: '98 000 km',
-    description: 'Petite citadine originale, bon état général, idéale premier véhicule.',
-    badge: 'Bientôt',
-  },
-  {
-    id: 'bp3',
-    marque: 'Toyota',
-    modele: 'Yaris II',
-    annee: 2007,
-    prix: '~4 200 €',
-    moteur: '1.0L VVT-i',
-    puissance: '69 ch',
-    km: '112 000 km',
-    description: 'Fiabilité légendaire Toyota. Entretien complet, prête à rouler.',
-    badge: 'Bientôt',
-  },
-]
+// Sélections budget à venir (à remplir avec de vrais véhicules)
+const BONS_PLANS = []
 
 const BUDGETS = [
   { label: 'Moins de 5 000 €', desc: 'Mobilité immédiate', color: '#14532d', bg: '#f0fdf4' },
@@ -143,12 +107,15 @@ export default function ImmanquablesPage() {
           </section>
         )}
 
-        {/* Divider */}
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="h-px bg-[#E8E8E8]" />
-        </div>
+        {ACCESSIBLES.length === 0 && BONS_PLANS.length === 0 && (
+          <section className="max-w-7xl mx-auto px-6 py-20 text-center">
+            <p className="font-serif text-2xl text-[#111]">Les premiers véhicules arrivent bientôt</p>
+            <p className="mt-2 text-sm text-[#888]">Contactez Pascal pour être prévenu en premier.</p>
+          </section>
+        )}
 
         {/* Bons plans à venir */}
+        {BONS_PLANS.length > 0 && (
         <section className="max-w-7xl mx-auto px-6 py-14">
           <div className="mb-8">
             <span className="text-xs font-medium uppercase tracking-[0.25em] text-[#C0392B]">Bientôt disponibles</span>
@@ -161,6 +128,7 @@ export default function ImmanquablesPage() {
             ))}
           </div>
         </section>
+        )}
 
         {/* CTA */}
         <section className="bg-[#F5F5F5] border-t border-[#E8E8E8] py-14">

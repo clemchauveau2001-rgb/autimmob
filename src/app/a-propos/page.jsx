@@ -325,10 +325,10 @@ export default function AboutPage() {
                 Cette technologie nous permet aussi d'être totalement transparents sur l'état de chaque véhicule. Ce que vous voyez est ce que vous obtenez.
               </p>
               <Link
-                href="/voiture/porsche-911-sc-targa-1982"
+                href="/#stock"
                 className="inline-block mt-8 text-sm font-medium uppercase tracking-wider text-white bg-[#C0392B] px-6 py-3 hover:bg-[#a93226] transition-colors duration-300"
               >
-                Essayer le viewer 360° →
+                Voir le stock →
               </Link>
             </motion.div>
 

@@ -101,6 +101,9 @@ export default function ComingSoon() {
     setSent(true)
   }, [email])
 
+  /* En local (npm run dev) : pas de compte à rebours, le site est visible pour tester */
+  if (process.env.NODE_ENV !== 'production') return null
+
   /* Date passée → vrai site */
   if (!timeLeft) return null
   /* Évite flash blanc SSR (hydration) */

@@ -10,6 +10,15 @@ export default function CarFilters() {
 
   const filtered = active === 'tout' ? stockCars : stockCars.filter((c) => c.category === active)
 
+  if (stockCars.length === 0) {
+    return (
+      <div className="py-20 text-center text-[#888]">
+        <p className="font-serif text-2xl text-[#111]">Les premiers véhicules arrivent bientôt</p>
+        <p className="mt-2 text-sm">Notre stock est en cours de préparation. Contactez-nous pour être prévenu en premier.</p>
+      </div>
+    )
+  }
+
   return (
     <div>
       {/* Filter tabs */}
