@@ -259,7 +259,7 @@ export default function RdvPage() {
                   </div>
                   <div>
                     <p className="text-sm font-semibold text-[#111]">Contact direct</p>
-                    <a href="tel:+33600000000" className="text-sm text-[#888] mt-0.5 hover:text-[#111] transition-colors block">06 00 00 00 00</a>
+                    <a href="tel:+33649507141" className="text-sm text-[#888] mt-0.5 hover:text-[#111] transition-colors block">06 49 50 71 41</a>
                     <a href="mailto:contact@autimmob.fr" className="text-xs text-[#888] mt-0.5 hover:text-[#111] transition-colors block">contact@autimmob.fr</a>
                   </div>
                 </div>

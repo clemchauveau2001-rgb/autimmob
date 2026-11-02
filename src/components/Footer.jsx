@@ -83,10 +83,10 @@ export default function Footer() {
                 contact@autimmob.fr
               </a>
               <a
-                href="tel:+33600000000"
+                href="tel:+33649507141"
                 className="block text-sm text-[#888] hover:text-white transition-colors duration-200"
               >
-                06 00 00 00 00
+                06 49 50 71 41
               </a>
             </address>
             <div className="mt-6">

@@ -85,7 +85,7 @@ export default function VehicleClient({ car }) {
         {/* CTA Buttons */}
         <div className="pt-5 space-y-3">
           <a
-            href="tel:+33600000000"
+            href="tel:+33649507141"
             className="flex items-center justify-center gap-2 w-full py-3.5 bg-[#C0392B] text-white text-sm font-medium uppercase tracking-wider hover:bg-[#a93226] transition-colors duration-200"
           >
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -245,7 +245,7 @@ export default function VehicleClient({ car }) {
         Message
       </a>
       <a
-        href="tel:+33600000000"
+        href="tel:+33649507141"
         className="flex h-11 flex-shrink-0 items-center justify-center bg-[#C0392B] px-5 text-[11px] font-medium uppercase tracking-wider text-white"
       >
         Appeler

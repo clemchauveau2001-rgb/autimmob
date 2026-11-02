@@ -387,7 +387,7 @@ export default function AboutPage() {
                     </div>
                     <div>
                       <p className="text-xs text-[#888] uppercase tracking-wider">Téléphone</p>
-                      <a href="tel:+33600000000" className="text-sm font-medium text-[#111] hover:text-[#C0392B] transition-colors">06 00 00 00 00</a>
+                      <a href="tel:+33649507141" className="text-sm font-medium text-[#111] hover:text-[#C0392B] transition-colors">06 49 50 71 41</a>
                     </div>
                   </div>
                   <div className="flex items-center gap-4">

@@ -139,7 +139,7 @@ export default function ImmanquablesPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <a
-                href="tel:+33600000000"
+                href="tel:+33649507141"
                 className="inline-block text-xs font-medium uppercase tracking-wider text-white bg-[#C0392B] px-6 py-3 hover:bg-[#a93226] transition-colors duration-200"
               >
                 Appeler Pascal

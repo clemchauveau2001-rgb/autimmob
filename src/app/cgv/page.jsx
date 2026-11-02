@@ -82,7 +82,7 @@ export default function CGVPage() {
             <p>Siège social : 22 rue Folco de Baroncelli, 13310 Saint-Martin-de-Crau</p>
             <p>RCS Tarascon — SIREN : 130 820 376</p>
             <p>
-              Téléphone : [Votre numéro] — E-mail :{' '}
+              Téléphone : 06 49 50 71 41 — E-mail :{' '}
               <a href="mailto:contact@autimmob.fr" className="text-[#C0392B] hover:underline">
                 contact@autimmob.fr
               </a>
