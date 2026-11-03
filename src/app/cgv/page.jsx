@@ -83,8 +83,8 @@ export default function CGVPage() {
             <p>RCS Tarascon — SIREN : 130 820 376</p>
             <p>
               Téléphone : 06 49 50 71 41 — E-mail :{' '}
-              <a href="mailto:contact@autimmob.fr" className="text-[#C0392B] hover:underline">
-                contact@autimmob.fr
+              <a href="mailto:autimmob.contact@gmail.com" className="text-[#C0392B] hover:underline">
+                autimmob.contact@gmail.com
               </a>
             </p>
           </div>

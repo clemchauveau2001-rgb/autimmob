@@ -42,7 +42,7 @@ function BonPlanCard({ car, index }) {
       <p className="mt-3 text-xl font-semibold text-[#111]">{car.prix}</p>
 
       <a
-        href={`mailto:contact@autimmob.fr?subject=Intérêt pour ${car.marque} ${car.modele}`}
+        href={`mailto:autimmob.contact@gmail.com?subject=Intérêt pour ${car.marque} ${car.modele}`}
         className="mt-4 flex items-center justify-center w-full py-2.5 text-[10px] font-semibold uppercase tracking-widest text-white bg-[#111] hover:bg-[#C0392B] transition-colors duration-200"
       >
         Me prévenir à la mise en vente
@@ -145,7 +145,7 @@ export default function ImmanquablesPage() {
                 Appeler Pascal
               </a>
               <a
-                href="mailto:contact@autimmob.fr?subject=Recherche véhicule accessible"
+                href="mailto:autimmob.contact@gmail.com?subject=Recherche véhicule accessible"
                 className="inline-block text-xs font-medium uppercase tracking-wider text-[#111] border border-[#111] px-6 py-3 hover:bg-[#111] hover:text-white transition-all duration-200"
               >
                 Envoyer un message

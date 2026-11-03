@@ -75,10 +75,10 @@ export default function Footer() {
               <p className="text-sm text-[#888]">Autimmob</p>
               <p className="text-sm text-[#888]">Saint-Martin-de-Crau, France</p>
               <a
-                href="mailto:contact@autimmob.fr"
+                href="mailto:autimmob.contact@gmail.com"
                 className="block text-sm text-[#888] hover:text-white transition-colors duration-200"
               >
-                contact@autimmob.fr
+                autimmob.contact@gmail.com
               </a>
               <a
                 href="tel:+33649507141"

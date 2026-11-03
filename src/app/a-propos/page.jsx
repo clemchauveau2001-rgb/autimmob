@@ -423,7 +423,7 @@ export default function AboutPage() {
                     </div>
                     <div>
                       <p className="text-xs text-[#888] uppercase tracking-wider">Email</p>
-                      <a href="mailto:contact@autimmob.fr" className="text-sm font-medium text-[#111] hover:text-[#C0392B] transition-colors">contact@autimmob.fr</a>
+                      <a href="mailto:autimmob.contact@gmail.com" className="text-sm font-medium text-[#111] hover:text-[#C0392B] transition-colors">autimmob.contact@gmail.com</a>
                     </div>
                   </div>
                   <div className="flex items-center gap-4">

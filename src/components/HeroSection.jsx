@@ -45,6 +45,19 @@ function StatItem({ end, suffix, label, delay = 0 }) {
   )
 }
 
+function StatText({ value, label, delay = 0 }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay }}
+    >
+      <p className="font-serif text-2xl font-semibold text-[#111]">{value}</p>
+      <p className="text-xs text-[#888] mt-0.5 tracking-wide">{label}</p>
+    </motion.div>
+  )
+}
+
 /* ── Stagger container ─────────────────────── */
 const container = {
   hidden: { opacity: 0 },
@@ -122,9 +135,9 @@ export default function HeroSection() {
               variants={fadeUp}
               className="mt-10 grid grid-cols-3 gap-4 sm:flex sm:flex-wrap sm:gap-8 pt-8 border-t border-[#E8E8E8]"
             >
-              <StatItem end={47} suffix="+" label="Véhicules remis en état" delay={0.6} />
-              <StatItem end={360} suffix="°" label="Technologie exclusive" delay={0.7} />
-              <StatItem end={100} suffix="%" label="Honnêteté & transparence" delay={0.8} />
+              <StatItem end={360} suffix="°" label="Photos 360° sur chaque véhicule" delay={0.6} />
+              <StatText value="Achat · Vente" label="Et mandat de vente" delay={0.7} />
+              <StatText value="Crau" label="Atelier à Saint-Martin-de-Crau" delay={0.8} />
             </motion.div>
           </motion.div>
 
