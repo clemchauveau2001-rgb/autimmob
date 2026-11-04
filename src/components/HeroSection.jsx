@@ -92,9 +92,9 @@ export default function HeroSection() {
 
   return (
     <>
-    <section className="relative pt-16 min-h-[100svh] flex items-center overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 w-full py-12 lg:py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-1 gap-8 items-center">
+    <section className="relative pt-16 min-h-[100svh] flex items-center max-md:items-stretch overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 w-full py-12 lg:py-16 max-md:flex max-md:flex-col max-md:pt-16 max-md:pb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-1 gap-8 items-center max-md:flex-1">
 
           {/* ── Left column — text ── */}
           <motion.div
@@ -102,17 +102,17 @@ export default function HeroSection() {
             initial="hidden"
             animate="show"
             style={{ y: textY }}
-            className="relative z-10 max-w-2xl"
+            className="relative z-10 max-w-2xl max-md:h-full max-md:flex max-md:flex-col"
           >
             <motion.span
               variants={fadeUp}
-              className="inline-block text-xs font-medium uppercase tracking-[0.25em] text-white/70 mb-6"
+              className="inline-block text-xs font-medium uppercase tracking-[0.25em] text-white/70 mb-6 max-md:-translate-y-12"
             >
               Garage automobile · Saint-Martin-de-Crau
             </motion.span>
 
             {/* Title with rotateX perspective effect */}
-            <motion.div variants={fadeUp} style={{ perspective: '800px', perspectiveOrigin: '50% 0%' }}>
+            <motion.div variants={fadeUp} className="max-md:-translate-y-12" style={{ perspective: '800px', perspectiveOrigin: '50% 0%' }}>
               <motion.h1
                 initial={{ rotateX: 8, opacity: 0, y: 20 }}
                 animate={{ rotateX: 0, opacity: 1, y: 0 }}
@@ -127,7 +127,7 @@ export default function HeroSection() {
 
             <motion.p
               variants={fadeUp}
-              className="mt-6 text-base md:text-lg text-white/85 leading-relaxed max-w-md"
+              className="mt-6 max-md:mt-auto text-base md:text-lg text-white/85 leading-relaxed max-w-md"
             >
               Achat, vente et mandataire de tout type de véhicule, à la demande, à Saint-Martin-de-Crau.
             </motion.p>
