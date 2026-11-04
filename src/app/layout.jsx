@@ -19,8 +19,8 @@ const inter = Inter({
 export const metadata = {
   title: 'Autimmob — Garage Automobile Saint-Martin-de-Crau',
   description:
-    'Garage automobile indépendant à Saint-Martin-de-Crau. Youngtimers et sportives. Achat, vente et mandataire. Photos 360° sur chaque véhicule.',
-  keywords: 'garage automobile saint-martin-de-crau, youngtimer, sportive, achat vente voiture',
+    'Achat, vente et mandataire automobile à Saint-Martin-de-Crau. Tout type de véhicule, à la demande.',
+  keywords: 'mandataire automobile saint-martin-de-crau, achat vente voiture, véhicule à la demande',
 }
 
 export default function RootLayout({ children }) {

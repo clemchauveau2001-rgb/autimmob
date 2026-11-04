@@ -112,7 +112,7 @@ export default function HeroSection() {
               variants={fadeUp}
               className="mt-6 text-base md:text-lg text-[#555] leading-relaxed max-w-md"
             >
-              Achat, vente et mandataire. Youngtimers et sportives à Saint-Martin-de-Crau — avec photo 360° sur chaque véhicule.
+              Achat, vente et mandataire. Tout type de véhicule, à la demande, à Saint-Martin-de-Crau.
             </motion.p>
 
             <motion.div variants={fadeUp} className="mt-8 flex flex-wrap gap-3">
