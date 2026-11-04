@@ -112,7 +112,7 @@ export default function HeroSection() {
               >
                 L&apos;automobile
                 <br />
-                <span className="text-[#C0392B] lg:text-[#E8594A]">autrement.</span>
+                <span className="text-[#C0392B] lg:text-white lg:italic lg:font-medium">autrement.</span>
               </motion.h1>
             </motion.div>
 
