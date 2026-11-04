@@ -137,7 +137,7 @@ export default function HeroSection() {
             >
               <StatItem end={360} suffix="°" label="Photos 360° sur chaque véhicule" delay={0.6} />
               <StatText value="Achat · Vente" label="Et mandat de vente" delay={0.7} />
-              <StatText value="Crau" label="Atelier à Saint-Martin-de-Crau" delay={0.8} />
+              <StatText value="Crau" label="Basé à Saint-Martin-de-Crau" delay={0.8} />
             </motion.div>
           </motion.div>
 

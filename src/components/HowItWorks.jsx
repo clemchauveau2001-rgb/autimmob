@@ -6,7 +6,7 @@ const STEPS = [
   {
     num: '01',
     title: 'On inspecte',
-    desc: "Chaque véhicule est minutieusement contrôlé par notre mécanicien. Diagnostic complet, test routier, relevé d'anomalies.",
+    desc: "Chaque véhicule est minutieusement contrôlé. Historique vérifié, état réel relevé, points d'attention communiqués.",
   },
   {
     num: '02',

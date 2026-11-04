@@ -9,7 +9,7 @@ import Link from 'next/link'
 const SERVICES = [
   {
     titre: 'Vente de véhicule',
-    description: 'Chaque véhicule vendu par Autimmob est inspecté, remis en état si nécessaire, photographié à 360° et livré avec son historique complet.',
+    description: 'Chaque véhicule vendu par Autimmob est contrôlé, photographié à 360° et livré avec son historique complet.',
     prix: 'Voir le stock',
     garanties: ['Garantie 6 mois pièces & main d\'œuvre', 'Contrôle technique valide', 'Historique vérifié', 'Photos 360° sur chaque véhicule'],
     lien: '/#stock',
@@ -67,7 +67,7 @@ export default function ServicesPage() {
                 Nos services
               </h1>
               <p className="mt-4 text-[#888] max-w-xl leading-relaxed">
-                Achat, vente, mandat de vente et financement : chaque véhicule est inspecté, remis en état et documenté avant d'être proposé, avec le même soin qu'un modèle de collection.
+                Achat, vente, mandat de vente et financement : chaque véhicule est contrôlé et documenté avant d'être proposé, avec le même soin qu'un modèle de collection.
               </p>
             </motion.div>
           </div>

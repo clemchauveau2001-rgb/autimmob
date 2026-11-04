@@ -34,7 +34,7 @@ export default function Home() {
               Véhicules disponibles
             </h2>
             <p className="mt-3 text-[#888] max-w-md leading-relaxed">
-              Chaque véhicule est inspecté, remis en état si nécessaire, et photographié à 360°.
+              Chaque véhicule est contrôlé et photographié à 360°.
             </p>
           </div>
           <CarFilters />

@@ -22,8 +22,8 @@ const SERVICES = [
         <path d="M9 14l3.5 3.5L19 10" stroke="#C0392B" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
-    title: 'Remise en état',
-    desc: 'Chaque véhicule est inspecté puis remis en état dans notre atelier avant d\'être mis en vente : vidange, freins, distribution, diagnostic électronique.',
+    title: 'Contrôle & transparence',
+    desc: 'Chaque véhicule est contrôlé avant d\'être proposé. Nous vous communiquons son état réel, son historique et ses points d\'attention, sans mauvaise surprise.',
   },
   {
     icon: (
@@ -83,8 +83,8 @@ const TEAM = [
   {
     initials: 'P.C',
     name: 'Pascal',
-    role: 'Fondateur & Mécanicien',
-    desc: 'Mécanicien passionné depuis toujours, par amour des belles mécaniques. Pascal chine et remet en état des véhicules depuis des années. Il connaît ces voitures dans les moindres détails, et ne vend que ce qu\'il validerait pour lui-même. Autimmob, c\'est son atelier, son projet, son identité.',
+    role: 'Fondateur',
+    desc: 'Pascal Coutat grandit dans l\'univers de l\'automobile, aux côtés de son père Jack, dirigeant d\'un garage Volkswagen–Audi. Il y acquiert l\'expertise et l\'exigence qui font Autimmob : un projet personnel, construit sur la transparence et l\'écoute.',
   },
 ]
 
@@ -130,15 +130,15 @@ export default function AboutPage() {
                 variants={fadeUp}
                 className="font-serif text-[clamp(2.5rem,5vw,4.5rem)] font-semibold mt-3 leading-tight text-[#111]"
               >
-                Un garage né
+                Un projet né
                 <br />
                 de la passion.
               </motion.h1>
               <motion.p variants={fadeUp} className="mt-6 text-[#555] leading-relaxed max-w-lg">
-                Autimmob, c'est le projet de Pascal — mécanicien de passion, qui chine et remet en état des véhicules depuis toujours. Il a toujours eu les mains dans le moteur, l'œil pour repérer le bon véhicule, et la rigueur pour le rendre impeccable avant de le vendre.
+                Autimmob, c'est le projet de Pascal. Passionné d'automobile, Pascal Coutat découvre très tôt l'univers de la mécanique et du commerce automobile aux côtés de son père, Jack, dirigeant d'un garage Volkswagen–Audi. Cette immersion lui permet d'acquérir une solide expertise du secteur et de développer un véritable sens de l'exigence.
               </motion.p>
               <motion.p variants={fadeUp} className="mt-4 text-[#555] leading-relaxed max-w-lg">
-                Pas un garage comme les autres. Un endroit où chaque voiture est traitée avec soin, documentée avec honnêteté, et vendue à des passionnés ou à des personnes qui méritent simplement un véhicule fiable.
+                De cette passion est née Autimmob, avec une ambition simple : accompagner chaque client dans son projet automobile avec transparence, écoute et professionnalisme. Parce que chaque besoin est unique, Autimmob privilégie un accompagnement personnalisé et un suivi de qualité, de la recherche du véhicule jusqu'à sa livraison.
               </motion.p>
               <motion.div variants={fadeUp} className="mt-8 flex gap-4 flex-wrap">
                 <Link
@@ -216,79 +216,6 @@ export default function AboutPage() {
                 </motion.div>
               ))}
             </div>
-          </div>
-        </section>
-
-        {/* ── ATELIER ── */}
-        <section className="max-w-7xl mx-auto px-6 py-20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-60px' }}
-              transition={{ duration: 0.6 }}
-            >
-              <span className="text-xs font-medium uppercase tracking-[0.25em] text-[#C0392B]">Notre atelier</span>
-              <h2 className="font-serif text-[clamp(2rem,4vw,3rem)] font-semibold mt-2 leading-tight text-[#111]">
-                Un espace dédié à
-                <br />
-                l'excellence mécanique.
-              </h2>
-              <p className="mt-5 text-[#555] leading-relaxed">
-                Notre atelier à Saint-Martin-de-Crau nous permet de préparer nous-mêmes chaque véhicule avant sa mise en vente : vidanges, distributions, freins, diagnostics électroniques.
-              </p>
-              <p className="mt-4 text-[#555] leading-relaxed">
-                Nous travaillons avec des équipements professionnels et des pièces de qualité. Chaque intervention est consignée dans l'historique de remise en état du véhicule.
-              </p>
-              <div className="mt-8 grid grid-cols-2 gap-4">
-                {[
-                  { value: '25 ans', label: 'd\'expérience mécanique' },
-                  { value: 'Atelier', label: 'Préparation sur place' },
-                  { value: 'Crau', label: 'Saint-Martin-de-Crau' },
-                  { value: '360°', label: 'Documentation visuelle' },
-                ].map((stat) => (
-                  <div key={stat.value} className="bg-[#F5F5F5] border border-[#E8E8E8] p-4">
-                    <p className="font-serif text-2xl font-semibold text-[#111]">{stat.value}</p>
-                    <p className="text-xs text-[#888] mt-0.5">{stat.label}</p>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* Atelier visual */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-60px' }}
-              transition={{ duration: 0.7, delay: 0.1 }}
-              className="bg-[#F5F5F5] border border-[#E8E8E8] aspect-square flex items-center justify-center"
-            >
-              <svg viewBox="0 0 400 400" className="w-4/5" xmlns="http://www.w3.org/2000/svg">
-                {/* Floor */}
-                <rect x="40" y="300" width="320" height="4" fill="#DDD" />
-                {/* Car on lift */}
-                <rect x="150" y="220" width="100" height="80" rx="4" fill="#E8E8E8" stroke="#CCC" strokeWidth="1" />
-                {/* Lift columns */}
-                <rect x="140" y="230" width="8" height="80" fill="#CCC" />
-                <rect x="252" y="230" width="8" height="80" fill="#CCC" />
-                {/* Car on top */}
-                <g transform="translate(95, 140) scale(0.42)">
-                  <path fill="#333" d="M 58 195 L 52 178 Q 53 166 63 157 Q 74 148 90 142 L 115 138 L 158 130 L 186 122 L 207 110 Q 222 94 233 86 Q 246 80 265 78 L 300 77 Q 328 78 348 88 Q 364 100 374 116 L 393 128 Q 412 135 438 143 Q 455 150 462 163 L 465 178 L 465 195 L 402 195 A 32 32 0 1 0 338 195 L 147 195 A 32 32 0 1 0 83 195 Z" />
-                  <path fill="rgba(255,255,255,0.15)" d="M 207 110 Q 222 94 233 86 Q 246 80 265 78 L 300 77 Q 326 78 344 87 Q 360 98 372 114 L 390 126 Q 340 130 290 130 Q 248 130 207 126 Z" />
-                  <circle cx="115" cy="195" r="32" fill="#222" /><circle cx="115" cy="195" r="22" fill="#888" /><circle cx="115" cy="195" r="8" fill="#333" />
-                  <circle cx="370" cy="195" r="32" fill="#222" /><circle cx="370" cy="195" r="22" fill="#888" /><circle cx="370" cy="195" r="8" fill="#333" />
-                </g>
-                {/* Tool wall */}
-                <rect x="330" y="60" width="30" height="220" fill="#F0F0F0" stroke="#E0E0E0" strokeWidth="1" />
-                <circle cx="345" cy="90" r="6" fill="#CCC" />
-                <circle cx="345" cy="115" r="6" fill="#CCC" />
-                <circle cx="345" cy="140" r="6" fill="#CCC" />
-                <rect x="333" y="160" width="24" height="4" rx="2" fill="#DDD" />
-                <rect x="333" y="170" width="24" height="4" rx="2" fill="#DDD" />
-                {/* Text label */}
-                <text x="200" y="370" textAnchor="middle" fontSize="11" fill="#888" fontFamily="'Inter', sans-serif" letterSpacing="2">NOTRE ATELIER</text>
-              </svg>
-            </motion.div>
           </div>
         </section>
 
@@ -400,7 +327,7 @@ export default function AboutPage() {
                   On se rencontre ?
                 </h2>
                 <p className="mt-4 text-[#555] leading-relaxed">
-                  Notre atelier est à Saint-Martin-de-Crau. Prenez rendez-vous pour visiter un véhicule, parler d'un projet d'achat ou de vente, ou simplement nous rencontrer.
+                  Autimmob est basé à Saint-Martin-de-Crau. Prenez rendez-vous pour visiter un véhicule, parler d'un projet d'achat ou de vente, ou simplement nous rencontrer.
                 </p>
                 <div className="mt-8 space-y-4">
                   <div className="flex items-center gap-4">

@@ -10,7 +10,6 @@ const ITEMS = [
   'Passion Automobile',
   'Achat · Vente',
   'Mandataire',
-  'Restauration',
   'Garage Indépendant',
 ]
 
