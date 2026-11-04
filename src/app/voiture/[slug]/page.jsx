@@ -17,7 +17,7 @@ export async function generateMetadata({ params }) {
   const car = getCar(slug)
   if (!car) return { title: 'Véhicule introuvable' }
   return {
-    title: `${car.marque} ${car.modele} ${car.annee} — Autimmob`,
+    title: `${car.marque} ${car.modele} ${car.annee} | Autimmob`,
     description: car.description.slice(0, 160),
   }
 }

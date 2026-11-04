@@ -51,7 +51,7 @@ export default function VehicleClient({ car }) {
 
   const handleWhatsApp = () => {
     if (typeof window === 'undefined') return
-    const text = encodeURIComponent(`${car.marque} ${car.modele} ${car.annee} — ${window.location.href}`)
+    const text = encodeURIComponent(`${car.marque} ${car.modele} ${car.annee} : ${window.location.href}`)
     window.open(`https://wa.me/?text=${text}`, '_blank', 'noopener')
   }
 
@@ -193,7 +193,7 @@ export default function VehicleClient({ car }) {
                 {car.vendeur === 'autimmob' ? 'Autimmob' : 'Particulier vérifié'}
               </p>
               <p className="text-xs text-[#888]">
-                {car.vendeur === 'autimmob' ? 'Saint-Martin-de-Crau — Garage professionnel' : 'Annonce mandataire'}
+                {car.vendeur === 'autimmob' ? 'Saint-Martin-de-Crau, garage professionnel' : 'Annonce mandataire'}
               </p>
             </div>
           </div>

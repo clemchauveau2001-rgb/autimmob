@@ -170,7 +170,7 @@ export default function NouveautesPage() {
                 Les nouveautés
               </h1>
               <p className="mt-4 text-[#888] max-w-xl leading-relaxed">
-                Ces véhicules ne sont pas encore en vente. Ils arrivent bientôt — soyez le premier alerté.
+                Ces véhicules ne sont pas encore en vente. Ils arrivent bientôt. Soyez le premier alerté.
               </p>
             </motion.div>
           </div>

@@ -70,7 +70,7 @@ export default function ImmanquablesPage() {
                 Les immanquables
               </h1>
               <p className="mt-4 text-[#888] max-w-xl leading-relaxed">
-                Des véhicules fiables, contrôlés et accessibles. Pour ceux qui veulent rouler bien sans se ruiner — chaque voiture est vérifiée par Pascal avant la mise en vente.
+                Des véhicules fiables, contrôlés et accessibles. Pour ceux qui veulent rouler bien sans se ruiner. Chaque voiture est vérifiée par Pascal avant la mise en vente.
               </p>
             </motion.div>
           </div>
@@ -86,7 +86,7 @@ export default function ImmanquablesPage() {
                 style={{ color: b.color, background: b.bg }}
               >
                 <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: b.color }} />
-                {b.label} — {b.desc}
+                {b.label} : {b.desc}
               </span>
             ))}
           </div>
@@ -135,7 +135,7 @@ export default function ImmanquablesPage() {
           <div className="max-w-7xl mx-auto px-6 text-center">
             <h2 className="font-serif text-2xl font-semibold text-[#111] mb-3">Un budget précis en tête ?</h2>
             <p className="text-[#888] mb-8 max-w-sm mx-auto text-sm">
-              Dites-nous votre enveloppe et ce que vous cherchez — Pascal vous trouve le bon véhicule.
+              Dites-nous votre enveloppe et ce que vous cherchez. Pascal vous trouve le bon véhicule.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <a

@@ -86,7 +86,7 @@ export async function POST(request) {
   }
 
   const who = [clean(fields.prenom, 60), clean(fields.nom, 60)].filter(Boolean).join(' ')
-  const subject = `${TYPES[type]}${who ? ` — ${who}` : ''}`
+  const subject = `${TYPES[type]}${who ? `, ${who}` : ''}`
   const text = `${TYPES[type]} reçue depuis autimmob.fr\n\n` + lines.map(([l, v]) => `${l} : ${v}`).join('\n')
 
   const res = await fetch('https://api.resend.com/emails', {

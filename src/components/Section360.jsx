@@ -28,7 +28,7 @@ export default function Section360() {
               sous tous les angles.
             </h2>
             <p className="mt-5 text-[#888] leading-relaxed max-w-md">
-              Nous équipons chaque véhicule d'une séance photo 360°. Explorez l'extérieur, l'habitacle, les détails et le compartiment moteur — avant même de vous déplacer.
+              Nous équipons chaque véhicule d'une séance photo 360°. Explorez l'extérieur, l'habitacle, les détails et le compartiment moteur, avant même de vous déplacer.
             </p>
             <ul className="mt-8 space-y-3">
               {[

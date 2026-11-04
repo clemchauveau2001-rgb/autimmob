@@ -11,7 +11,7 @@ const STEPS = [
   {
     num: '02',
     title: 'On remet en état',
-    desc: 'Vidange, freins, distribution, sellerie — tout ce qui nécessite une intervention est traité avant mise en vente.',
+    desc: 'Vidange, freins, distribution, sellerie : tout ce qui nécessite une intervention est traité avant mise en vente.',
   },
   {
     num: '03',
@@ -21,7 +21,7 @@ const STEPS = [
   {
     num: '04',
     title: 'On vous accompagne',
-    desc: "Financement, livraison, garantie, mandataire — nous sommes là de A à Z, même après l'achat.",
+    desc: "Financement, livraison, garantie, mandataire : nous sommes là de A à Z, même après l'achat.",
   },
 ]
 

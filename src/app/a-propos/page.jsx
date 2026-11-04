@@ -65,7 +65,7 @@ const SERVICES = [
       </svg>
     ),
     title: 'Sélection & préparation',
-    desc: 'Préparation, recherche et sélection de véhicules. Pascal connaît ces voitures par passion — chaque modèle, chaque particularité mécanique, chaque point d\'attention.',
+    desc: 'Préparation, recherche et sélection de véhicules. Pascal connaît ces voitures par passion : chaque modèle, chaque particularité mécanique, chaque point d\'attention.',
   },
   {
     icon: (
@@ -275,7 +275,7 @@ export default function AboutPage() {
                 comme standard.
               </h2>
               <p className="mt-5 text-[#555] leading-relaxed">
-                Nous avons investi dans une caméra 360° professionnelle pour offrir à nos clients une expérience de visite virtuelle unique. Plus besoin de vous déplacer pour inspecter un véhicule — explorez chaque détail depuis votre canapé.
+                Nous avons investi dans une caméra 360° professionnelle pour offrir à nos clients une expérience de visite virtuelle unique. Plus besoin de vous déplacer pour inspecter un véhicule : explorez chaque détail depuis votre canapé.
               </p>
               <p className="mt-4 text-[#555] leading-relaxed">
                 Cette technologie nous permet aussi d'être totalement transparents sur l'état de chaque véhicule. Ce que vous voyez est ce que vous obtenez.

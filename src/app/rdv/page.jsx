@@ -227,7 +227,7 @@ export default function RdvPage() {
                 Venez nous rencontrer
               </h1>
               <p className="mt-4 text-[#888] max-w-xl leading-relaxed">
-                Visite et essai d'un véhicule, ou dépôt de votre voiture pour un mandat de vente — choisissez votre créneau directement dans notre agenda.
+                Visite et essai d'un véhicule, ou dépôt de votre voiture pour un mandat de vente. Choisissez votre créneau directement dans notre agenda.
               </p>
             </motion.div>
           </div>
@@ -266,7 +266,7 @@ export default function RdvPage() {
                   </div>
                   <div>
                     <p className="text-sm font-semibold text-[#111]">Horaires</p>
-                    <p className="text-sm text-[#888] mt-0.5">Lun — Sam : 9h → 19h</p>
+                    <p className="text-sm text-[#888] mt-0.5">Lun au Sam : 9h → 19h</p>
                     <p className="text-xs text-[#888] mt-0.5">Sur rendez-vous uniquement</p>
                   </div>
                 </div>

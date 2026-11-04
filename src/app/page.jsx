@@ -9,7 +9,7 @@ import CtaBand from '@/components/CtaBand'
 import ReviewCarousel from '@/components/ReviewCarousel'
 
 export const metadata = {
-  title: 'Autimmob — Garage Automobile Saint-Martin-de-Crau',
+  title: 'Autimmob | Garage Automobile Saint-Martin-de-Crau',
   description:
     'Achat, vente et mandataire automobile à Saint-Martin-de-Crau. Tout type de véhicule, à la demande.',
 }

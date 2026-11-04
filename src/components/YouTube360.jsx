@@ -39,7 +39,7 @@ export default function YouTube360({ videoId }) {
         <div className="flex items-center gap-2">
           <span className="w-1.5 h-1.5 rounded-full bg-[#C0392B] animate-pulse" />
           <span className="text-[10px] font-semibold uppercase tracking-widest text-white/50">
-            Visite 360° interactive — faites glisser dans la vidéo
+            Visite 360° interactive : faites glisser dans la vidéo
           </span>
         </div>
         <button
