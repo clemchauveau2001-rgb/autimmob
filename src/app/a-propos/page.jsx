@@ -23,7 +23,7 @@ const SERVICES = [
       </svg>
     ),
     title: 'Contrôle & transparence',
-    desc: 'Chaque véhicule est contrôlé avant d\'être proposé. Nous vous communiquons son état réel, son historique et ses points d\'attention, sans mauvaise surprise.',
+    desc: 'Chaque véhicule est contrôlé selon 133 points avant d\'être proposé. Nous vous communiquons son état réel, son historique et ses points d\'attention, sans mauvaise surprise.',
   },
   {
     icon: (

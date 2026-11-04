@@ -34,7 +34,7 @@ export default function Home() {
               Véhicules disponibles
             </h2>
             <p className="mt-3 text-[#888] max-w-md leading-relaxed">
-              Chaque véhicule est contrôlé et photographié à 360°.
+              Chaque véhicule est contrôlé selon 133 points et photographié à 360°.
             </p>
           </div>
           <CarFilters />

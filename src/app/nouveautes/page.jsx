@@ -198,7 +198,7 @@ export default function NouveautesPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
               {[
                 { icon: '🔔', titre: 'Alerte email', desc: 'Soyez prévenu dès qu\'un véhicule passe en vente.' },
-                { icon: '🔍', titre: 'Inspection complète', desc: 'Chaque immanquable est contrôlé avant mise en vente.' },
+                { icon: '🔍', titre: 'Inspection complète', desc: 'Chaque immanquable est contrôlé selon 133 points avant mise en vente.' },
                 { icon: '🤝', titre: 'Réservation possible', desc: 'Contactez-nous pour réserver un véhicule avant sa mise en ligne.' },
               ].map((item, i) => (
                 <motion.div
