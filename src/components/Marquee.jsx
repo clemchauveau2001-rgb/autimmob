@@ -3,14 +3,14 @@
 import { motion } from 'motion/react'
 
 const ITEMS = [
-  'Tous types de véhicules',
-  'Sur demande',
-  'Photos 360°',
+  'Vente',
   'Saint-Martin-de-Crau',
-  'Passion Automobile',
-  'Achat · Vente',
-  'Mandataire',
-  'Garage Indépendant',
+  'Utilitaire',
+  'Voiture standard',
+  'Immanquable',
+  'Berline',
+  'Sportive',
+  'Youngtimer',
 ]
 
 export default function Marquee() {
