@@ -3,8 +3,8 @@
 import { motion } from 'motion/react'
 
 const ITEMS = [
-  'Youngtimers',
-  'Sportives',
+  'Tous types de véhicules',
+  'Sur demande',
   'Photos 360°',
   'Saint-Martin-de-Crau',
   'Passion Automobile',

@@ -112,7 +112,7 @@ export default function HeroSection() {
               variants={fadeUp}
               className="mt-6 text-base md:text-lg text-[#555] leading-relaxed max-w-md"
             >
-              Achat, vente et mandataire. Tout type de véhicule, à la demande, à Saint-Martin-de-Crau.
+              Achat, vente et mandataire de tout type de véhicule, à la demande, à Saint-Martin-de-Crau.
             </motion.p>
 
             <motion.div variants={fadeUp} className="mt-8 flex flex-wrap gap-3">

@@ -30,9 +30,8 @@ export default function Footer() {
             <ul className="space-y-2">
               {[
                 { href: '/#stock', label: 'Tout le stock' },
-                { href: '/#stock', label: 'Youngtimers' },
-                { href: '/#stock', label: 'Sportives' },
-                { href: '/#stock', label: 'Accessibles' },
+                { href: '/rdv', label: 'Un véhicule à la demande' },
+                { href: '/a-propos#rdv', label: 'Estimer mon véhicule' },
               ].map((item) => (
                 <li key={item.label}>
                   <Link
