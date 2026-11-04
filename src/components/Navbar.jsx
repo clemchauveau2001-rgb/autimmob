@@ -21,7 +21,8 @@ export default function Navbar() {
   const { count, mounted } = useFavoris()
   const pathname = usePathname()
   // Sur l'accueil (ordinateur), la barre est masquée tout en haut pour laisser place au trailer
-  const hideAtTop = pathname === '/' && !scrolled && !hovered && !menuOpen
+  const overHero = pathname === '/' && !scrolled
+  const hideAtTop = overHero && !hovered && !menuOpen
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -32,18 +33,18 @@ export default function Navbar() {
   return (
     <>
       {pathname === '/' && !scrolled && (
-        <div className="hidden lg:block fixed top-0 left-0 right-0 h-6 z-40" onMouseEnter={() => setHovered(true)} />
+        <div className="hidden md:block fixed top-0 left-0 right-0 h-6 z-40" onMouseEnter={() => setHovered(true)} />
       )}
       <header
         onMouseLeave={() => setHovered(false)}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-[#E8E8E8]' : 'bg-white/80 backdrop-blur-sm'
-        } ${hideAtTop ? 'lg:-translate-y-full lg:opacity-0 lg:pointer-events-none' : ''}`}
+        } ${overHero ? 'max-md:bg-transparent max-md:backdrop-blur-none' : ''} ${hideAtTop ? 'md:-translate-y-full md:opacity-0 md:pointer-events-none' : ''}`}
       >
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
-            <span className="font-serif text-2xl font-semibold tracking-tight text-[#111]">
+            <span className={`font-serif text-2xl font-semibold tracking-tight text-[#111] ${overHero ? 'max-md:text-white' : ''}`}>
               Aut<span className="text-[#C0392B]">i</span>mmob
             </span>
           </Link>
@@ -99,17 +100,17 @@ export default function Navbar() {
             aria-label="Menu"
           >
             <span
-              className={`block w-6 h-[1.5px] bg-[#111] transition-all duration-300 origin-center ${
+              className={`block w-6 h-[1.5px] ${overHero ? 'max-md:bg-white' : 'bg-[#111]'} transition-all duration-300 origin-center ${
                 menuOpen ? 'rotate-45 translate-y-[6.5px]' : ''
               }`}
             />
             <span
-              className={`block w-6 h-[1.5px] bg-[#111] transition-all duration-300 ${
+              className={`block w-6 h-[1.5px] ${overHero ? 'max-md:bg-white' : 'bg-[#111]'} transition-all duration-300 ${
                 menuOpen ? 'opacity-0' : ''
               }`}
             />
             <span
-              className={`block w-6 h-[1.5px] bg-[#111] transition-all duration-300 origin-center ${
+              className={`block w-6 h-[1.5px] ${overHero ? 'max-md:bg-white' : 'bg-[#111]'} transition-all duration-300 origin-center ${
                 menuOpen ? '-rotate-45 -translate-y-[6.5px]' : ''
               }`}
             />
