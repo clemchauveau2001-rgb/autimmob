@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'motion/react'
 import { useFavoris } from '@/hooks/useFavoris'
 
@@ -16,7 +17,11 @@ const NAV_LINKS = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const [hovered, setHovered] = useState(false)
   const { count, mounted } = useFavoris()
+  const pathname = usePathname()
+  // Sur l'accueil (ordinateur), la barre est masquée tout en haut pour laisser place au trailer
+  const hideAtTop = pathname === '/' && !scrolled && !hovered && !menuOpen
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -26,10 +31,14 @@ export default function Navbar() {
 
   return (
     <>
+      {pathname === '/' && !scrolled && (
+        <div className="hidden lg:block fixed top-0 left-0 right-0 h-6 z-40" onMouseEnter={() => setHovered(true)} />
+      )}
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        onMouseLeave={() => setHovered(false)}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-[#E8E8E8]' : 'bg-white/80 backdrop-blur-sm'
-        }`}
+        } ${hideAtTop ? 'lg:-translate-y-full lg:opacity-0 lg:pointer-events-none' : ''}`}
       >
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           {/* Logo */}

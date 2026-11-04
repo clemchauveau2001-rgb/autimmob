@@ -83,7 +83,7 @@ export default function HeroSection() {
   }
 
   return (
-    <section className="relative pt-16 min-h-[88vh] lg:min-h-[calc(100vh-4rem)] flex items-center overflow-hidden">
+    <section className="relative pt-16 min-h-[88vh] lg:min-h-screen flex items-center overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 w-full py-6 lg:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-1 gap-8 items-center">
 
@@ -154,7 +154,7 @@ export default function HeroSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative order-first lg:order-none -mx-6 lg:mx-0 lg:absolute lg:inset-x-0 lg:bottom-0 lg:top-16"
+            className="relative order-first lg:order-none -mx-6 lg:mx-0 lg:absolute lg:inset-0"
           >
             {/* Trailer vidéo (boucle, son au choix) */}
             <div className="relative overflow-hidden bg-[#111] aspect-video lg:aspect-auto lg:h-full">
