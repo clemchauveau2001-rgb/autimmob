@@ -193,7 +193,11 @@ export default function AboutPage() {
               </h2>
             </motion.div>
 
-            <div className="max-w-lg">
+            <div className="grid md:grid-cols-[minmax(0,360px)_1fr] gap-10 items-center">
+              <div className="relative aspect-[3/4] overflow-hidden bg-[#111]">
+                <img src="/pascal.jpg" alt="Pascal Coutat, fondateur d'Autimmob" className="absolute inset-0 w-full h-full object-cover" />
+              </div>
+              <div>
               {TEAM.map((member, i) => (
                 <motion.div
                   key={member.name}
@@ -215,6 +219,7 @@ export default function AboutPage() {
                   <p className="mt-5 text-sm text-[#555] leading-relaxed">{member.desc}</p>
                 </motion.div>
               ))}
+              </div>
             </div>
           </div>
         </section>
