@@ -74,6 +74,14 @@ export default function HeroSection() {
   const textY = useTransform(scrollY, [0, 600], [0, 22])
   const videoRef = useRef(null)
   const [muted, setMuted] = useState(true)
+  // Version verticale 9:16 sur téléphone, horizontale sinon (choisie avant de charger la vidéo)
+  const [media, setMedia] = useState(null)
+  useEffect(() => {
+    const mobile = window.matchMedia('(max-width: 767px)').matches
+    setMedia(mobile
+      ? { src: '/videos/trailer-mobile.mp4', poster: '/videos/trailer-mobile-poster.jpg' }
+      : { src: '/videos/trailer.mp4', poster: '/videos/trailer-poster.jpg' })
+  }, [])
   const toggleSound = () => {
     const v = videoRef.current
     if (!v) return
@@ -158,10 +166,11 @@ export default function HeroSection() {
           >
             {/* Trailer vidéo (boucle, son au choix) */}
             <div className="relative overflow-hidden bg-[#111] h-full">
-              <video
+              {media && <video
+                key={media.src}
                 ref={videoRef}
-                src="/videos/trailer.mp4"
-                poster="/videos/trailer-poster.jpg"
+                src={media.src}
+                poster={media.poster}
                 autoPlay
                 muted
                 loop
@@ -169,7 +178,7 @@ export default function HeroSection() {
                 preload="auto"
                 aria-label="Trailer Autimmob"
                 className="absolute inset-0 w-full h-full object-cover"
-              />
+              />}
               <div className="absolute inset-0 bg-black/45 md:bg-transparent md:bg-gradient-to-r md:from-black/70 md:via-black/25 md:to-transparent pointer-events-none" />
               <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/50 to-transparent pointer-events-none" />
               <button
