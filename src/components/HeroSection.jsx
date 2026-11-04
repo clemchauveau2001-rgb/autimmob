@@ -83,7 +83,7 @@ export default function HeroSection() {
   }
 
   return (
-    <section className="relative pt-16 min-h-[88vh] lg:min-h-[92vh] flex items-center overflow-hidden lg:bg-[#111]">
+    <section className="relative pt-16 min-h-[88vh] lg:min-h-[calc(100vh-4rem)] flex items-center overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 w-full py-6 lg:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-1 gap-8 items-center">
 
@@ -93,7 +93,7 @@ export default function HeroSection() {
             initial="hidden"
             animate="show"
             style={{ y: textY }}
-            className="relative z-10 lg:max-w-xl"
+            className="relative z-10 lg:max-w-2xl"
           >
             <motion.span
               variants={fadeUp}
@@ -108,7 +108,7 @@ export default function HeroSection() {
                 initial={{ rotateX: 8, opacity: 0, y: 20 }}
                 animate={{ rotateX: 0, opacity: 1, y: 0 }}
                 transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-                className="font-serif text-[clamp(3rem,6vw,5.5rem)] font-semibold leading-[1.05] tracking-tight text-[#111] lg:text-white"
+                className="font-serif text-[clamp(3rem,6.5vw,6.25rem)] font-semibold leading-[1.05] tracking-tight text-[#111] lg:text-white"
               >
                 L&apos;automobile
                 <br />
@@ -145,7 +145,7 @@ export default function HeroSection() {
             >
               <StatItem end={360} suffix="°" label="Photos 360° sur chaque véhicule" delay={0.6} />
               <StatText value="Achat · Vente" label="Et mandat de vente" delay={0.7} />
-              <StatText value="Crau" label="Basé à Saint-Martin-de-Crau" delay={0.8} />
+              <StatText value="Sur demande" label="Tous types de véhicules" delay={0.8} />
             </motion.div>
           </motion.div>
 
@@ -154,7 +154,7 @@ export default function HeroSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative order-first lg:order-none -mx-6 lg:mx-0 lg:absolute lg:inset-0"
+            className="relative order-first lg:order-none -mx-6 lg:mx-0 lg:absolute lg:inset-x-0 lg:bottom-0 lg:top-16"
           >
             {/* Trailer vidéo (boucle, son au choix) */}
             <div className="relative overflow-hidden bg-[#111] aspect-video lg:aspect-auto lg:h-full">
@@ -170,7 +170,8 @@ export default function HeroSection() {
                 aria-label="Trailer Autimmob"
                 className="absolute inset-0 w-full h-full object-cover"
               />
-              <div className="hidden lg:block absolute inset-0 bg-gradient-to-r from-black/80 via-black/45 to-black/10 pointer-events-none" />
+              <div className="hidden lg:block absolute inset-0 bg-gradient-to-r from-black/70 via-black/25 to-transparent pointer-events-none" />
+              <div className="hidden lg:block absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/50 to-transparent pointer-events-none" />
               <button
                 type="button"
                 onClick={toggleSound}
