@@ -91,6 +91,7 @@ export default function HeroSection() {
   }
 
   return (
+    <>
     <section className="relative pt-16 min-h-[100svh] flex items-center overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 w-full py-12 lg:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-1 gap-8 items-center">
@@ -149,7 +150,7 @@ export default function HeroSection() {
             {/* Stats with count-up */}
             <motion.div
               variants={fadeUp}
-              className="mt-10 grid grid-cols-3 gap-4 sm:flex sm:flex-wrap sm:gap-8 pt-8 border-t border-white/25"
+              className="hidden md:flex md:flex-wrap md:gap-8 mt-10 pt-8 border-t border-white/25"
             >
               <StatItem end={360} suffix="°" label="Photos 360° sur chaque véhicule" delay={0.6} />
               <StatText value="Achat · Vente" label="Et mandat de vente" delay={0.7} />
@@ -202,5 +203,13 @@ export default function HeroSection() {
         </div>
       </div>
     </section>
+
+    {/* Stats sous la vidéo (téléphone uniquement) */}
+    <div className="md:hidden bg-[#111] px-6 py-7 grid grid-cols-3 gap-4">
+      <StatItem end={360} suffix="°" label="Photos 360° sur chaque véhicule" delay={0.2} />
+      <StatText value="Achat · Vente" label="Et mandat de vente" delay={0.3} />
+      <StatText value="Sur demande" label="Tous types de véhicules" delay={0.4} />
+    </div>
+    </>
   )
 }
