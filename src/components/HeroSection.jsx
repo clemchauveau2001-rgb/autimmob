@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, useScroll, useTransform, useInView } from 'motion/react'
 import Link from 'next/link'
-import Image from 'next/image'
 
 /* ── Count-up hook ─────────────────────────── */
 function useCountUp(end, duration = 1800) {
@@ -74,6 +73,15 @@ export default function HeroSection() {
   // Parallax: text moves down slightly, car moves up
   const textY = useTransform(scrollY, [0, 600], [0, 22])
   const carY = useTransform(scrollY, [0, 600], [0, -40])
+  const videoRef = useRef(null)
+  const [muted, setMuted] = useState(true)
+  const toggleSound = () => {
+    const v = videoRef.current
+    if (!v) return
+    v.muted = !v.muted
+    setMuted(v.muted)
+    if (!v.muted) v.play().catch(() => {})
+  }
 
   return (
     <section className="pt-16 min-h-[88vh] flex items-center overflow-hidden">
@@ -146,25 +154,41 @@ export default function HeroSection() {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="relative hidden lg:block"
+            className="relative"
             style={{ y: carY }}
           >
-            {/* Cadre photo principal */}
-            <div className="relative overflow-hidden shadow-2xl shadow-black/20" style={{ aspectRatio: '4/3' }}>
-              <Image
-                src="/hero.jpg"
-                alt="Autimmob — Garage automobile à Saint-Martin-de-Crau"
-                fill
-                priority
-                className="object-cover"
-                sizes="(max-width: 1280px) 50vw, 640px"
+            {/* Trailer vidéo (boucle, son au choix) */}
+            <div className="relative overflow-hidden bg-[#111] shadow-2xl shadow-black/20" style={{ aspectRatio: '16/9' }}>
+              <video
+                ref={videoRef}
+                src="/videos/trailer.mp4"
+                poster="/videos/trailer-poster.jpg"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="auto"
+                aria-label="Trailer Autimmob"
+                className="absolute inset-0 w-full h-full object-cover"
               />
-              {/* Légère vignette en bas */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
+              <button
+                type="button"
+                onClick={toggleSound}
+                aria-label={muted ? 'Activer le son' : 'Couper le son'}
+                aria-pressed={!muted}
+                className="absolute bottom-3 right-3 flex items-center gap-2 bg-black/60 hover:bg-black/80 backdrop-blur-sm text-white text-xs font-medium uppercase tracking-wider px-3 py-2 transition-colors duration-200"
+              >
+                {muted ? (
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z" /><line x1="22" y1="9" x2="16" y2="15" /><line x1="16" y1="9" x2="22" y2="15" /></svg>
+                ) : (
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z" /><path d="M15.5 8.5a5 5 0 0 1 0 7" /><path d="M19 5a10 10 0 0 1 0 14" /></svg>
+                )}
+                {muted ? 'Activer le son' : 'Son activé'}
+              </button>
             </div>
 
             {/* Trait rouge décoratif */}
-            <div className="absolute -bottom-3 -right-3 w-full h-full border border-[#C0392B]/30 pointer-events-none" style={{ aspectRatio: '4/3' }} />
+            <div className="absolute -bottom-3 -right-3 w-full h-full border border-[#C0392B]/30 pointer-events-none" style={{ aspectRatio: '16/9' }} />
 
           </motion.div>
 
