@@ -162,7 +162,11 @@ export default function AboutPage() {
               transition={{ duration: 0.9, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
               className="relative max-w-xl mx-auto w-full"
             >
-              <div className="bg-white p-3 pb-10 sm:p-4 sm:pb-14 shadow-[0_18px_45px_-12px_rgba(0,0,0,0.35)] border border-[#ECECEC]">
+              <motion.div
+                animate={{ y: [0, -10, 0], rotate: [0, 1, 0] }}
+                transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+                className="bg-white p-3 pb-10 sm:p-4 sm:pb-14 shadow-[0_18px_45px_-12px_rgba(0,0,0,0.35)] border border-[#ECECEC]"
+              >
                 <div className="relative overflow-hidden bg-[#111]" style={{ aspectRatio: '3 / 2' }}>
                   <img
                     src="/pascal-jeune.jpg"
@@ -170,7 +174,7 @@ export default function AboutPage() {
                     className="absolute inset-0 w-full h-full object-cover"
                   />
                 </div>
-              </div>
+              </motion.div>
             </motion.div>
           </div>
         </section>
