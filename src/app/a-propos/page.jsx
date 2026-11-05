@@ -87,6 +87,31 @@ const TEAM = [
   },
 ]
 
+function PhotoJeune({ className = '' }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20, rotate: 0 }}
+      animate={{ opacity: 1, y: 0, rotate: -2 }}
+      transition={{ duration: 0.9, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+      className={`relative max-w-xl mx-auto w-full ${className}`}
+    >
+      <motion.div
+        animate={{ y: [0, -10, 0], rotate: [0, 1, 0] }}
+        transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+        className="bg-white p-3 pb-10 sm:p-4 sm:pb-14 shadow-[0_18px_45px_-12px_rgba(0,0,0,0.35)] border border-[#ECECEC]"
+      >
+        <div className="relative overflow-hidden bg-[#111]" style={{ aspectRatio: '3 / 2' }}>
+          <img
+            src="/pascal-jeune.jpg"
+            alt="Pascal Coutat, jeune, au volant d'une voiture"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        </div>
+      </motion.div>
+    </motion.div>
+  )
+}
+
 export default function AboutPage() {
   const [estimOpen, setEstimOpen] = useState(false)
   const [contactStatus, setContactStatus] = useState('idle')
@@ -139,6 +164,9 @@ export default function AboutPage() {
               <motion.p variants={fadeUp} className="mt-4 text-[#555] leading-relaxed max-w-lg">
                 De cette passion est née Autimmob, avec une ambition simple : accompagner chaque client dans son projet automobile avec transparence, écoute et professionnalisme. Parce que chaque besoin est unique, Autimmob privilégie un accompagnement personnalisé et un suivi de qualité, de la recherche du véhicule jusqu'à sa livraison.
               </motion.p>
+              <motion.div variants={fadeUp} className="lg:hidden mt-8">
+                <PhotoJeune />
+              </motion.div>
               <motion.div variants={fadeUp} className="mt-8 flex gap-4 flex-wrap">
                 <Link
                   href="/#stock"
@@ -155,27 +183,8 @@ export default function AboutPage() {
               </motion.div>
             </motion.div>
 
-            {/* Photo de Pascal jeune, façon tirage photo d'époque */}
-            <motion.div
-              initial={{ opacity: 0, y: 20, rotate: 0 }}
-              animate={{ opacity: 1, y: 0, rotate: -2 }}
-              transition={{ duration: 0.9, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              className="relative max-w-xl mx-auto w-full"
-            >
-              <motion.div
-                animate={{ y: [0, -10, 0], rotate: [0, 1, 0] }}
-                transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-                className="bg-white p-3 pb-10 sm:p-4 sm:pb-14 shadow-[0_18px_45px_-12px_rgba(0,0,0,0.35)] border border-[#ECECEC]"
-              >
-                <div className="relative overflow-hidden bg-[#111]" style={{ aspectRatio: '3 / 2' }}>
-                  <img
-                    src="/pascal-jeune.jpg"
-                    alt="Pascal Coutat, jeune, au volant d'une voiture"
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
-                </div>
-              </motion.div>
-            </motion.div>
+            {/* Photo de Pascal jeune (ordinateur : à droite du texte) */}
+            <PhotoJeune className="hidden lg:block" />
           </div>
         </section>
 
