@@ -155,21 +155,22 @@ export default function AboutPage() {
               </motion.div>
             </motion.div>
 
-            {/* Photo de Pascal jeune */}
+            {/* Photo de Pascal jeune, façon tirage photo d'époque */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="relative"
+              initial={{ opacity: 0, y: 20, rotate: 0 }}
+              animate={{ opacity: 1, y: 0, rotate: -2 }}
+              transition={{ duration: 0.9, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              className="relative max-w-xl mx-auto w-full"
             >
-              <div className="relative overflow-hidden bg-[#111] shadow-2xl shadow-black/15" style={{ aspectRatio: '3 / 2' }}>
-                <img
-                  src="/pascal-jeune.jpg"
-                  alt="Pascal Coutat, jeune, au volant d'une voiture"
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
+              <div className="bg-white p-3 pb-10 sm:p-4 sm:pb-14 shadow-[0_18px_45px_-12px_rgba(0,0,0,0.35)] border border-[#ECECEC]">
+                <div className="relative overflow-hidden bg-[#111]" style={{ aspectRatio: '3 / 2' }}>
+                  <img
+                    src="/pascal-jeune.jpg"
+                    alt="Pascal Coutat, jeune, au volant d'une voiture"
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                </div>
               </div>
-              <div className="hidden lg:block absolute -bottom-3 -right-3 w-full h-full border border-[#C0392B]/30 pointer-events-none" />
             </motion.div>
           </div>
         </section>
