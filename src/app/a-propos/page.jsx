@@ -5,7 +5,6 @@ import { motion } from 'motion/react'
 import Link from 'next/link'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
-import CarSilhouette from '@/components/CarSilhouette'
 import EstimationModal from '@/components/EstimationModal'
 import { sendContact } from '@/lib/sendContact'
 
@@ -156,23 +155,21 @@ export default function AboutPage() {
               </motion.div>
             </motion.div>
 
-            {/* Car illustration */}
+            {/* Photo de Pascal jeune */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="relative hidden lg:flex items-center justify-center"
+              className="relative"
             >
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-4/5 aspect-video rounded-full bg-[#F7F7F7]" />
+              <div className="relative overflow-hidden bg-[#111] shadow-2xl shadow-black/15" style={{ aspectRatio: '3 / 2' }}>
+                <img
+                  src="/pascal-jeune.jpg"
+                  alt="Pascal Coutat, jeune, au volant d'une voiture"
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
               </div>
-              <motion.div
-                className="relative z-10 w-full max-w-[480px]"
-                animate={{ y: [0, -12, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-              >
-                <CarSilhouette className="w-full" withShadow />
-              </motion.div>
+              <div className="hidden lg:block absolute -bottom-3 -right-3 w-full h-full border border-[#C0392B]/30 pointer-events-none" />
             </motion.div>
           </div>
         </section>
