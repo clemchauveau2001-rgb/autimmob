@@ -6,6 +6,7 @@ import FavoriButton from '@/components/FavoriButton'
 import BadgeAutimmob from '@/components/BadgeAutimmob'
 
 function formatPrice(price) {
+  if (!price) return 'Sur demande'
   return new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(price)
 }
 

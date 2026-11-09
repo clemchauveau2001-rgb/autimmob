@@ -41,8 +41,20 @@ function IconVideo() {
 
 export default function MediaTabs({ car }) {
   const media    = car.media    || {}
-  const photos   = media.photos   || []
-  const views360 = media.views360 || []
+  const allViews = media.views360 || []
+  // Les photos 360° (image) sont ajoutées à la suite des photos dans la galerie.
+  // Seules les vues 360° vidéo gardent leur onglet dédié.
+  const photoViews = allViews.filter((v) => v.type !== 'video')
+  const views360   = allViews.filter((v) => v.type === 'video')
+  const photos = [
+    ...(media.photos || []),
+    ...photoViews.map((v) => ({
+      url: v.panorama,
+      alt: `Visite 360° ${v.label}`,
+      panorama: v.panorama,
+      label: v.label,
+    })),
+  ]
   const videos   = media.videos   || []   // [] = onglet Vidéo masqué
 
   const tabs = [

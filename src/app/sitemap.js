@@ -6,6 +6,7 @@ export default function sitemap() {
   const now = new Date()
   const pages = [
     { path: '', priority: 1 },
+    { path: '/stock', priority: 0.9 },
     { path: '/immanquables', priority: 0.8 },
     { path: '/nouveautes', priority: 0.7 },
     { path: '/services', priority: 0.8 },

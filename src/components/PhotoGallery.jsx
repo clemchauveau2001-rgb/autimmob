@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
+import Viewer360PSV from './Viewer360PSV'
 
 export default function PhotoGallery({ photos = [] }) {
   const [idx, setIdx] = useState(0)
@@ -45,12 +46,16 @@ export default function PhotoGallery({ photos = [] }) {
             transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
             className="absolute inset-0"
           >
-            <img
-              src={photos[idx].url}
-              alt={photos[idx].alt}
-              className="w-full h-full object-cover"
-              draggable={false}
-            />
+            {photos[idx].panorama ? (
+              <Viewer360PSV fill panorama={photos[idx].panorama} label={photos[idx].label} />
+            ) : (
+              <img
+                src={photos[idx].url}
+                alt={photos[idx].alt}
+                className="w-full h-full object-cover"
+                draggable={false}
+              />
+            )}
           </motion.div>
         </AnimatePresence>
 
@@ -78,13 +83,19 @@ export default function PhotoGallery({ photos = [] }) {
           </>
         )}
 
+        {photos[idx].panorama && (
+          <span className="absolute top-3 left-3 z-10 flex items-center gap-1.5 bg-black/60 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-widest text-white pointer-events-none">
+            360° · glisser pour tourner
+          </span>
+        )}
+
         {/* Counter */}
         <div className="absolute bottom-3 right-3 bg-black/60 px-2.5 py-1 text-[11px] text-white/70 font-medium tabular-nums">
           {idx + 1} / {photos.length}
         </div>
 
         {/* Dots indicator */}
-        {photos.length > 1 && photos.length <= 8 && (
+        {photos.length > 1 && photos.length <= 8 && !photos[idx].panorama && (
           <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
             {photos.map((_, i) => (
               <button
@@ -114,7 +125,10 @@ export default function PhotoGallery({ photos = [] }) {
                   : 'opacity-45 hover:opacity-75'
               }`}
             >
-              <img src={photo.url} alt={photo.alt} className="w-full h-full object-cover" draggable={false} />
+              <img src={photo.url} alt={photo.alt} className="w-full h-full object-cover" draggable={false} loading="lazy" />
+              {photo.panorama && (
+                <span className="absolute inset-0 flex items-center justify-center bg-black/45 text-[10px] font-bold tracking-wider text-white">360°</span>
+              )}
             </button>
           ))}
         </div>

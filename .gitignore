@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Instructions du comptable (données d'entreprise) : ne pas publier
+.claude/agents/comptable.md

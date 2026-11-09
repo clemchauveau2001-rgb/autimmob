@@ -9,18 +9,20 @@ import { useFavoris } from '@/hooks/useFavoris'
 import { CATEGORY_META } from '@/lib/cars'
 
 function formatPrice(price) {
+  if (!price) return 'Sur demande'
   return new Intl.NumberFormat('fr-FR', {
     style: 'currency', currency: 'EUR', maximumFractionDigits: 0,
   }).format(price)
 }
 
 function formatKm(km) {
+  if (!km) return 'N.C.'
   return new Intl.NumberFormat('fr-FR').format(km) + ' km'
 }
 
 const BACK_SPECS = [
   { key: 'moteur', label: 'Moteur' },
-  { key: 'puissance', label: 'Puissance', format: (v) => `${v} ch` },
+  { key: 'puissance', label: 'Puissance', format: (v) => (v ? `${v} ch` : 'N.C.') },
   { key: 'boite', label: 'Boîte' },
   { key: 'km', label: 'Kilométrage', format: (v) => formatKm(v) },
 ]
@@ -99,9 +101,19 @@ export default function CarCard({ car, index = 0 }) {
                 </div>
               )}
               {/* Car SVG */}
-              <div className="absolute inset-0 flex items-center justify-center px-5 pb-2 pt-8">
-                <CarSilhouette className="w-full h-auto" withShadow />
-              </div>
+              {car.media?.photos?.[0] ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={car.media.photos[0].url}
+                  alt={car.media.photos[0].alt}
+                  loading="lazy"
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              ) : (
+                <div className="absolute inset-0 flex items-center justify-center px-5 pb-2 pt-8">
+                  <CarSilhouette className="w-full h-auto" withShadow />
+                </div>
+              )}
             </div>
 
             {/* Info */}
@@ -112,7 +124,7 @@ export default function CarCard({ car, index = 0 }) {
                     {car.marque} {car.modele}
                   </h3>
                   <p className="mt-0.5 text-xs text-[#888] tracking-wide">
-                    {car.annee} · {formatKm(car.km)}
+                    {[car.annee, car.km ? formatKm(car.km) : null].filter(Boolean).join(' · ')}
                   </p>
                 </div>
                 <span

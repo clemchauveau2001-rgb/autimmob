@@ -5,6 +5,8 @@ import { motion, AnimatePresence } from 'motion/react'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import CarSilhouette from '@/components/CarSilhouette'
+import CarCard from '@/components/CarCard'
+import { getNouveautes } from '@/lib/cars'
 
 // Véhicules qui arrivent bientôt (à remplir avec de vrais véhicules)
 const BIENTOT = []
@@ -153,6 +155,7 @@ function CarComingSoonCard({ car, index }) {
 }
 
 export default function NouveautesPage() {
+  const nouveautes = getNouveautes()
   return (
     <>
       <Navbar />
@@ -170,21 +173,35 @@ export default function NouveautesPage() {
                 Les nouveautés
               </h1>
               <p className="mt-4 text-[#888] max-w-xl leading-relaxed">
-                Ces véhicules ne sont pas encore en vente. Ils arrivent bientôt. Soyez le premier alerté.
+                Les dernières annonces mises en ligne, et les véhicules qui arrivent bientôt. Soyez le premier informé.
               </p>
             </motion.div>
           </div>
         </section>
 
         {/* Cars grid */}
+        {nouveautes.length > 0 && (
+          <section className="max-w-7xl mx-auto px-6 pt-16">
+            <h2 className="font-serif text-2xl font-semibold text-[#111] mb-6">Nouveaux véhicules</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {nouveautes.map((car, i) => (
+                <CarCard key={car.id} car={car} index={i} />
+              ))}
+            </div>
+          </section>
+        )}
+
         <section className="max-w-7xl mx-auto px-6 py-16">
+          {BIENTOT.length > 0 && nouveautes.length > 0 && (
+            <h2 className="font-serif text-2xl font-semibold text-[#111] mb-6">Bientôt en vente</h2>
+          )}
           {BIENTOT.length > 0 ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {BIENTOT.map((car, i) => (
                 <CarComingSoonCard key={car.id} car={car} index={i} />
               ))}
             </div>
-          ) : (
+          ) : nouveautes.length > 0 ? null : (
             <div className="text-center py-24">
               <p className="font-serif text-2xl font-semibold text-[#111] mb-3">Rien pour l'instant</p>
               <p className="text-[#888]">Revenez bientôt, de nouveaux véhicules arrivent régulièrement.</p>

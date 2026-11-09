@@ -17,16 +17,18 @@ export async function generateMetadata({ params }) {
   const car = getCar(slug)
   if (!car) return { title: 'Véhicule introuvable' }
   return {
-    title: `${car.marque} ${car.modele} ${car.annee} | Autimmob`,
+    title: `${[car.marque, car.modele, car.annee].filter(Boolean).join(' ')} | Autimmob`,
     description: car.description.slice(0, 160),
   }
 }
 
 function formatPrice(price) {
+  if (!price) return 'Sur demande'
   return new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(price)
 }
 
 function formatKm(km) {
+  if (!km) return null
   return new Intl.NumberFormat('fr-FR').format(km) + ' km'
 }
 
@@ -50,10 +52,10 @@ export default async function VehiclePage({ params }) {
     { label: 'Année', value: car.annee },
     { label: 'Kilométrage', value: formatKm(car.km) },
     { label: 'Moteur', value: car.moteur },
-    { label: 'Puissance', value: `${car.puissance} ch` },
+    { label: 'Puissance', value: car.puissance ? `${car.puissance} ch` : null },
     { label: 'Boîte', value: car.boite },
     { label: 'Couleur', value: car.couleur },
-  ]
+  ].filter((s) => s.value)
 
   return (
     <>
@@ -105,7 +107,7 @@ export default async function VehiclePage({ params }) {
                 {car.marque} {car.modele}
               </h1>
               <p className="mt-2 text-[#888] text-lg">
-                {car.annee} · {formatKm(car.km)} · {car.moteur}
+                {[car.annee, formatKm(car.km), car.moteur].filter(Boolean).join(' · ')}
               </p>
 
               {/* Prix — visible tout de suite sur mobile (sur grand écran il est dans la colonne de droite) */}
@@ -127,7 +129,7 @@ export default async function VehiclePage({ params }) {
               {/* Description */}
               <div className="mt-10">
                 <h2 className="font-serif text-2xl font-semibold text-[#111] mb-4">Description</h2>
-                <p className="text-[#555] leading-relaxed">{car.description}</p>
+                <p className="text-[#555] leading-relaxed whitespace-pre-line">{car.description}</p>
               </div>
 
               {/* Points forts */}

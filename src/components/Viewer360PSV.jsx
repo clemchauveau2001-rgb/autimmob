@@ -16,7 +16,7 @@ async function fileExists(url) {
   }
 }
 
-export default function Viewer360PSV({ panorama, label = 'Photo' }) {
+export default function Viewer360PSV({ panorama, label = 'Photo', fill = false }) {
   const containerRef = useRef(null)
   const viewerRef    = useRef(null)
   const [status, setStatus] = useState('loading') // loading | ready | missing | error
@@ -84,7 +84,7 @@ export default function Viewer360PSV({ panorama, label = 'Photo' }) {
   }, [panorama])
 
   return (
-    <div className="relative aspect-[4/5] max-h-[75vh] w-full sm:aspect-[16/9] sm:max-h-none bg-[#0D0D0D] overflow-hidden">
+    <div className={fill ? 'relative w-full h-full bg-[#0D0D0D] overflow-hidden' : 'relative aspect-[4/5] max-h-[75vh] w-full sm:aspect-[16/9] sm:max-h-none bg-[#0D0D0D] overflow-hidden'}>
       <div ref={containerRef} className="absolute inset-0" />
 
       {status === 'loading' && (
