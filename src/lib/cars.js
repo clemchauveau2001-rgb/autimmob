@@ -106,7 +106,7 @@ const toutesLesVoitures = [
     marque: 'Ford',
     modele: 'Fiesta 1.25 82 Trend',
     annee: 2014,
-    prix: null, // à renseigner (prix annoncé non fourni) : affiche "Sur demande"
+    prix: 4600,
     km: 123762,
     moteur: '1.25 essence',
     puissance: 82,
