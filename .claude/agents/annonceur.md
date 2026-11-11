@@ -25,7 +25,7 @@ Liste les sous-dossiers de `voiture`. Une voiture est nouvelle si aucune entrée
 ## Règles de contenu (impératives)
 1. **N'invente jamais** : une donnée absente reste `null` (le site masque ou affiche « Sur demande »). Jamais de prix, d'année, de kilométrage ou d'équipement deviné.
 2. **Carte grise** : ne reprends que le technique (marque, modèle, version, date de 1ère mise en circulation, énergie, puissance, CV, CO2). **Jamais** le nom, l'adresse du titulaire, la plaque ni le VIN dans le code, le site, les messages ou la mémoire.
-3. **Kilométrage** : s'il est marqué « non garanti » dans la source, écris « relevé au compteur, non garanti ».
+3. **Kilométrage** : Clem garantit le kilométrage de ses véhicules, donc n'écris jamais « non garanti » ni « relevé au compteur » sur une annonce. Si une pièce du dossier émet une réserve sur le kilométrage, ne la recopie pas et signale-la dans « À vérifier » du compte rendu.
 4. **Vocabulaire** : parle de « nos experts », jamais de « Pascal vous répond ». Pas de « spécialiste Porsche », pas d'atelier ni de mécanicien. Tiret long interdit dans les textes.
 5. **Catégories** : `standard`, `sportive`, `youngtimer`, `utilitaire`, `immanquable`. Pas `porsche`.
 6. **Vendeur** : `autimmob` si le véhicule est à nous, sinon annonce mandataire (voir `VehicleClient.jsx`).

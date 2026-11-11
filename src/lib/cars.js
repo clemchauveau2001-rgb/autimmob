@@ -27,7 +27,7 @@ const toutesLesVoitures = [
     modele: 'Meriva 1.6 105 Cosmo',
     annee: 2008,
     prix: 3990,
-    km: 113406, // relevé au compteur, non garanti (à vérifier)
+    km: 113406,
     moteur: '1.6 essence',
     puissance: 105,
     boite: 'Manuelle',
@@ -35,7 +35,7 @@ const toutesLesVoitures = [
     category: 'standard',
     vendeur: 'autimmob',
     description:
-      "Opel Meriva 1.6 105 ch de 2008 en finition Cosmo, gris argent, boîte manuelle.\nMonospace compact et très pratique\u00a0: habitacle modulable, banquette arrière coulissante, grand volume pour la famille et les trajets du quotidien. Historique complet. Quatre freins à disques neufs. Très bien équipée\u00a0: climatisation automatique, grand écran avec radio intégrée et GPS, ordinateur de bord, commandes au volant, 4 vitres électriques, rétroviseurs électriques, jantes alu et vitres surteintées. Kilométrage relevé au compteur, non garanti. Visite et essai sur rendez-vous à Saint-Martin-de-Crau.",
+      "Opel Meriva 1.6 105 ch de 2008 en finition Cosmo, gris argent, boîte manuelle.\nMonospace compact et très pratique\u00a0: habitacle modulable, banquette arrière coulissante, grand volume pour la famille et les trajets du quotidien. Historique complet. Quatre freins à disques neufs. Très bien équipée\u00a0: climatisation automatique, grand écran avec radio intégrée et GPS, ordinateur de bord, commandes au volant, 4 vitres électriques, rétroviseurs électriques, jantes alu et vitres surteintées. Visite et essai sur rendez-vous à Saint-Martin-de-Crau.",
     points_forts: [
       'Historique complet',
       'Quatre freins à disques neufs',
@@ -115,7 +115,7 @@ const toutesLesVoitures = [
     category: 'standard',
     vendeur: 'autimmob',
     description:
-      "Ford Fiesta 1.25 82 ch en finition Trend, 5 portes, première mise en circulation en mars 2014, blanche, 123 762 km au compteur. Citadine simple, économique et facile à vivre, idéale pour la ville comme pour les trajets quotidiens. Courroie de distribution changée à 90 000 km. Équipée\u00a0: climatisation automatique, autoradio intégré avec Bluetooth, ordinateur de bord, rétroviseurs électriques et nouvelles jantes. Véhicule présenté en l'état réel, photos non retouchées. Contactez-nous pour l'essayer à Saint-Martin-de-Crau.",
+      "Ford Fiesta 1.25 82 ch en finition Trend, 5 portes, première mise en circulation en mars 2014, blanche, 123 762 km au compteur. Citadine simple, économique et facile à vivre, idéale pour la ville comme pour les trajets quotidiens. Courroie de distribution changée à 90 000 km. Équipée\u00a0: climatisation automatique, autoradio intégré avec Bluetooth, ordinateur de bord, rétroviseurs électriques et nouvelles jantes. Contactez-nous pour l'essayer à Saint-Martin-de-Crau.",
     points_forts: [
       'Citadine 5 portes, pratique au quotidien',
       'Courroie de distribution changée à 90 000 km',

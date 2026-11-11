@@ -19,7 +19,6 @@
     "vin": "XXXXXXXXXXXXXXXXX",
     "mise_en_circulation": "2014-05-20",
     "kilometrage": 123762,
-    "kilometrage_garanti": false,
     "energie": "Essence",
     "boite": "Manuelle",
     "couleur": "Blanc"
