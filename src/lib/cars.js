@@ -26,7 +26,7 @@ const toutesLesVoitures = [
     marque: 'Opel',
     modele: 'Meriva 1.6 105 Cosmo',
     annee: 2008,
-    prix: 3790,
+    prix: 3990,
     km: 113406, // relevé au compteur, non garanti (à vérifier)
     moteur: '1.6 essence',
     puissance: 105,
