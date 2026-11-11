@@ -78,7 +78,7 @@ const toutesLesVoitures = [
     category: 'sportive',
     vendeur: 'autimmob',
     description:
-      "Porsche Cayenne Turbo gris, V8 biturbo, présenté avec sa visite à 360° de l'habitacle. Un SUV sportif au caractère rare, avec l'échappement quadruple et les jantes 5 branches. Photos non retouchées, essai et visite sur rendez-vous à Saint-Martin-de-Crau.",
+      "Porsche Cayenne Turbo gris, V8 biturbo, présenté avec sa visite à 360° de l'habitacle. Un SUV sportif au caractère rare, avec l'échappement quadruple et les jantes 5 branches. Essai et visite sur rendez-vous à Saint-Martin-de-Crau.",
     points_forts: [
       'Moteur V8 biturbo, la version Turbo du Cayenne',
       'Visite à 360° de l\'habitacle',
