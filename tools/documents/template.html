@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8">
+<title>{{ 'Facture' if t == 'facture' else 'Devis' }} {{ x.numero }}</title>
+<style>
+@font-face{font-family:Serif;font-weight:700;src:url(data:font/woff2;base64,{{ f_serif }})}
+@font-face{font-family:Sans;font-weight:400;src:url(data:font/woff2;base64,{{ f400 }})}
+@font-face{font-family:Sans;font-weight:600;src:url(data:font/woff2;base64,{{ f600 }})}
+@font-face{font-family:Sans;font-weight:700;src:url(data:font/woff2;base64,{{ f700 }})}
+@page{size:A4;margin:0}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Sans,Arial,sans-serif;font-size:9.5pt;line-height:1.45;color:#161616;width:210mm;min-height:297mm;position:relative}
+.bar{position:fixed;left:0;top:0;bottom:0;width:4mm;background:#C0392B}
+.page{padding:13mm 16mm 24mm 20mm}
+.head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8mm}
+.logo{font-family:Serif,Georgia,serif;font-weight:700;font-size:34pt;line-height:1;letter-spacing:-.5pt}
+.logo i{font-style:normal;color:#C0392B}
+.rule{width:18mm;height:.9mm;background:#C0392B;margin:2.6mm 0 2.4mm}
+.city{font-size:7.5pt;letter-spacing:.22em;font-weight:600;color:#666}
+.titre{text-align:right}
+.titre h1{font-size:20pt;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.titre .num{margin-top:1.5mm;font-size:10pt;font-weight:600;color:#C0392B}
+.titre .meta{margin-top:1mm;color:#555;font-size:9pt}
+.parties{display:grid;grid-template-columns:1fr 1fr;gap:10mm;margin-bottom:6mm}
+.lbl{font-size:7pt;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:#C0392B;margin-bottom:2mm}
+.parties .nom{font-weight:700;font-size:10.5pt}
+.parties p{color:#333}
+.veh{background:#F5F5F4;padding:4mm 6mm;margin-bottom:6mm}
+.veh h2{margin-bottom:3mm}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2.6mm 6mm}
+.grid div span{display:block;font-size:7pt;letter-spacing:.14em;text-transform:uppercase;color:#777;font-weight:600}
+.grid div b{font-weight:600;font-size:9.5pt}
+table.l{width:100%;border-collapse:collapse;margin-bottom:5mm}
+table.l th{font-size:7pt;letter-spacing:.18em;text-transform:uppercase;text-align:left;color:#777;padding:0 0 2mm;border-bottom:.4mm solid #161616;font-weight:700}
+table.l th.r,table.l td.r{text-align:right;white-space:nowrap}
+table.l td{padding:3mm 0;border-bottom:.2mm solid #D9D9D6;vertical-align:top}
+table.l td small{display:block;color:#666;font-size:8pt}
+.tot{margin-left:auto;width:78mm;margin-bottom:7mm}
+.tot div{display:flex;justify-content:space-between;padding:1.2mm 0;color:#333}
+.tot .g{border-top:.4mm solid #161616;margin-top:1.5mm;padding-top:2.4mm;font-weight:700;font-size:12pt;color:#161616}
+.tot .g b{color:#C0392B}
+.tot .reste{font-weight:700;color:#161616}
+.tva{border-left:.8mm solid #C0392B;padding:.5mm 0 .5mm 4mm;margin-bottom:7mm;font-size:8.8pt;color:#333}
+.bloc{display:grid;grid-template-columns:1fr 1fr;gap:10mm;margin-bottom:7mm}
+.bloc p{color:#333;font-size:9pt}
+.sign{border:.3mm solid #BDBDB8;height:24mm;padding:2.5mm 3.5mm;font-size:8.5pt;color:#555}
+.mentions{font-size:7.6pt;color:#666;line-height:1.5}
+.foot{position:fixed;left:20mm;right:16mm;bottom:9mm;border-top:.3mm solid #D9D9D6;padding-top:2.4mm;text-align:center;font-size:7.2pt;color:#777;line-height:1.5}
+.wm{position:fixed;top:105mm;left:0;width:100%;text-align:center;transform:rotate(-28deg);font-size:96pt;font-weight:700;letter-spacing:.1em;color:rgba(192,57,43,.11);z-index:9;pointer-events:none}
+</style></head>
+<body>
+<div class="bar"></div>
+{% if brouillon %}<div class="wm">BROUILLON</div>{% endif %}
+<div class="page">
+
+<div class="head">
+  <div>
+    <div class="logo">Aut<i>i</i>mmob</div>
+    <div class="rule"></div>
+    <div class="city">SAINT-MARTIN-DE-CRAU</div>
+  </div>
+  <div class="titre">
+    <h1>{{ 'Facture' if t == 'facture' else 'Devis' }}</h1>
+    <div class="num">N° {{ x.numero or '—' }}</div>
+    <div class="meta">Date : {{ date_doc|fr }}
+    {% if t == 'devis' %}<br>Valable jusqu'au {{ fin_validite|fr }} ({{ validite }} jours){% endif %}</div>
+  </div>
+</div>
+
+<div class="parties">
+  <div>
+    <div class="lbl">Vendeur</div>
+    <p class="nom">{{ e.denomination }} {{ e.forme }}</p>
+    {% for l in e.adresse %}<p>{{ l }}</p>{% endfor %}
+    <p>{{ e.telephone }}<br>{{ e.email }}<br>{{ e.site }}</p>
+  </div>
+  <div>
+    <div class="lbl">{{ 'Acheteur' if t == 'facture' else 'Client' }}</div>
+    <p class="nom">{{ x.acheteur.nom }}</p>
+    {% if x.acheteur.societe %}<p>{{ x.acheteur.societe }}{% if x.acheteur.siren %} · SIREN {{ x.acheteur.siren }}{% endif %}</p>{% endif %}
+    {% for l in x.acheteur.adresse or [] %}<p>{{ l }}</p>{% endfor %}
+    {% if x.acheteur.telephone or x.acheteur.email %}<p>{{ x.acheteur.telephone or '' }}{% if x.acheteur.telephone and x.acheteur.email %}<br>{% endif %}{{ x.acheteur.email or '' }}</p>{% endif %}
+  </div>
+</div>
+
+<div class="veh">
+  <div class="lbl veh-h">Véhicule d'occasion</div>
+  <div class="grid">
+    <div><span>Marque</span><b>{{ x.vehicule.marque or '—' }}</b></div>
+    <div><span>Modèle</span><b>{{ x.vehicule.modele or '—' }}{% if x.vehicule.version %} {{ x.vehicule.version }}{% endif %}</b></div>
+    <div><span>Immatriculation</span><b>{{ x.vehicule.immatriculation or '—' }}</b></div>
+    <div><span>N° de série (VIN)</span><b>{{ x.vehicule.vin or '—' }}</b></div>
+    <div><span>1re mise en circulation</span><b>{{ (x.vehicule.mise_en_circulation|fr) if x.vehicule.mise_en_circulation else '—' }}</b></div>
+    <div><span>Kilométrage</span><b>{% if x.vehicule.kilometrage %}{{ '{:,}'.format(x.vehicule.kilometrage).replace(',', ' ') }} km{% if x.vehicule.kilometrage_garanti == false %} (non garanti){% endif %}{% else %}—{% endif %}</b></div>
+    {% if x.vehicule.energie %}<div><span>Énergie</span><b>{{ x.vehicule.energie }}</b></div>{% endif %}
+    {% if x.vehicule.boite %}<div><span>Boîte</span><b>{{ x.vehicule.boite }}</b></div>{% endif %}
+    {% if x.vehicule.couleur %}<div><span>Couleur</span><b>{{ x.vehicule.couleur }}</b></div>{% endif %}
+  </div>
+</div>
+
+<table class="l">
+  <thead><tr><th>Désignation</th><th class="r">Prix TTC</th></tr></thead>
+  <tbody>
+  {% for l in c.lignes %}
+    <tr><td>{{ l.designation }}{% if l.detail %}<small>{{ l.detail }}</small>{% endif %}</td><td class="r">{{ l.prix }}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+<div class="tot">
+  {% if c.regime == 'normale' %}
+    <div><span>Total HT</span><span>{{ c.total_ht }}</span></div>
+    <div><span>TVA 20 %</span><span>{{ c.tva }}</span></div>
+  {% endif %}
+  {% if c.remise %}<div><span>Sous-total</span><span>{{ c.sous_total }}</span></div><div><span>Remise</span><span>− {{ c.remise }}</span></div>{% endif %}
+  <div class="g"><span>Total TTC</span><b>{{ c.total_ttc }}</b></div>
+  {% if c.acompte %}
+    <div><span>{{ 'Acompte versé' if t == 'facture' else 'Acompte à la commande' }}</span><span>− {{ c.acompte }}</span></div>
+    <div class="reste"><span>Reste à payer</span><span>{{ c.reste }}</span></div>
+  {% endif %}
+</div>
+
+<div class="tva">
+{% if c.regime == 'marge' %}
+  Régime particulier de la TVA sur la marge, biens d'occasion (article 297 A du CGI). La TVA n'est pas mentionnée sur le document et n'est pas récupérable par l'acheteur.
+{% else %}
+  Prix exprimé toutes taxes comprises, TVA au taux de 20 %.
+{% endif %}
+</div>
+
+<div class="bloc">
+  <div>
+    <div class="lbl">{{ 'Règlement' if t == 'facture' else 'Conditions' }}</div>
+    {% if t == 'facture' %}
+      <p>Date de vente et de livraison : {{ (x.date_livraison or x.date)|fr }}.</p>
+      <p>Mode de paiement : {{ x.paiement or 'à préciser' }}.</p>
+      {% if e.iban != 'A_COMPLETER' %}<p>Virement : {{ e.titulaire_compte }}<br>IBAN {{ e.iban }} · BIC {{ e.bic }}</p>{% endif %}
+      {% if x.acheteur.societe %}<p>Pénalités de retard : trois fois le taux d'intérêt légal. Indemnité forfaitaire de recouvrement : 40 €.</p>{% endif %}
+    {% else %}
+      <p>Devis valable {{ validite }} jours à compter de sa date.</p>
+      <p>Livraison prévue : {{ x.livraison_prevue or 'à convenir avec l\'acheteur' }}.</p>
+      <p>Véhicule vendu dans l'état décrit, sous réserve de sa disponibilité à la date de la commande.</p>
+    {% endif %}
+  </div>
+  {% if t == 'devis' %}
+  <div>
+    <div class="lbl">Bon pour accord</div>
+    <div class="sign">Date, signature précédée de la mention « Bon pour accord »</div>
+  </div>
+  {% else %}
+  <div>
+    <div class="lbl">Garanties</div>
+    <p>Garanties légales de conformité (articles L. 217-3 et suivants du Code de la consommation) et des vices cachés (articles 1641 et suivants du Code civil).</p>
+  </div>
+  {% endif %}
+</div>
+
+{% if x.notes %}<div class="bloc" style="grid-template-columns:1fr"><div><div class="lbl">Précisions</div><p>{{ x.notes }}</p></div></div>{% endif %}
+
+<div class="mentions">
+  {% if t == 'devis' %}Garanties légales de conformité et des vices cachés applicables. {% endif %}Conditions générales de vente consultables sur autimmob.fr/cgv. Le véhicule reste la propriété d'{{ e.denomination }} jusqu'au paiement intégral du prix.
+</div>
+</div>
+
+<div class="foot">
+  {{ e.denomination }} {{ e.forme }} au capital de {{ e.capital }} · {{ e.adresse|join(', ') }} · {{ e.rcs }} {{ e.siren }}{% if e.siret != 'A_COMPLETER' %} · SIRET {{ e.siret }}{% endif %}{% if e.tva_intracom != 'A_COMPLETER' %} · TVA {{ e.tva_intracom }}{% endif %}<br>
+  {{ e.telephone }} · {{ e.email }} · {{ e.site }}
+</div>
+</body></html>

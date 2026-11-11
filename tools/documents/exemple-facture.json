@@ -1,0 +1,31 @@
+{
+  "numero": "FA-2026-0001",
+  "date": "2026-11-12",
+  "date_livraison": "2026-11-14",
+  "regime_tva": "marge",
+  "acheteur": {
+    "nom": "Jean Exemple",
+    "adresse": ["12 rue des Lilas", "13200 Arles"],
+    "telephone": "06 00 00 00 00",
+    "email": "jean.exemple@example.com"
+  },
+  "vehicule": {
+    "marque": "Ford",
+    "modele": "Fiesta",
+    "version": "1.25 82 Trend",
+    "immatriculation": "AA-123-AA",
+    "vin": "XXXXXXXXXXXXXXXXX",
+    "mise_en_circulation": "2014-05-20",
+    "kilometrage": 123762,
+    "kilometrage_garanti": false,
+    "energie": "Essence",
+    "boite": "Manuelle",
+    "couleur": "Blanc"
+  },
+  "lignes": [
+    {"designation": "Ford Fiesta 1.25 82 Trend, véhicule d'occasion", "detail": "Contrôle technique de moins de 6 mois remis à l'acheteur", "prix_ttc": "5500.00"},
+    {"designation": "Frais de mise à disposition", "prix_ttc": "150.00"}
+  ],
+  "acompte": "500.00",
+  "paiement": "virement bancaire"
+}

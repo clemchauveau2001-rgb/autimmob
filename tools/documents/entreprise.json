@@ -1,0 +1,16 @@
+{
+  "denomination": "AUTIMMOB",
+  "forme": "SAS",
+  "capital": "10 000 €",
+  "adresse": ["22 rue Folco de Baroncelli", "13310 Saint-Martin-de-Crau"],
+  "rcs": "RCS Tarascon",
+  "siren": "130 820 376",
+  "siret": "A_COMPLETER",
+  "tva_intracom": "A_COMPLETER",
+  "telephone": "06 49 50 71 41",
+  "email": "autimmob.contact@gmail.com",
+  "site": "autimmob.fr",
+  "iban": "A_COMPLETER",
+  "bic": "A_COMPLETER",
+  "titulaire_compte": "AUTIMMOB SAS"
+}
