@@ -20,13 +20,12 @@ export function photos360(slug, vues = ['exterieur', 'interieur']) {
 const toutesLesVoitures = [
   {
     id: 'opel-meriva',
-    enLigne: false, // masquée pour l'instant
     slug: 'opel-meriva',
     dossierDrive: 'Opel Meriva', // sous-dossier Drive AUTIMMOB/voiture/ (utilisé par l'agent annonceur)
-    ajoutee: '2026-11-09', // date de mise en ligne : sert à la page Nouveautés (30 jours)
+    ajoutee: '2026-11-11', // date de mise en ligne : sert à la page Nouveautés (30 jours)
     marque: 'Opel',
     modele: 'Meriva 1.6 105 Cosmo',
-    annee: null, // à confirmer avec la carte grise (case B)
+    annee: 2008,
     prix: 3790,
     km: 113406, // relevé au compteur, non garanti (à vérifier)
     moteur: '1.6 essence',
@@ -36,11 +35,12 @@ const toutesLesVoitures = [
     category: 'standard',
     vendeur: 'autimmob',
     description:
-      "Opel Meriva 1.6 105 ch en finition Cosmo, gris argent, boîte manuelle.\nMonospace compact et très pratique : habitacle modulable, banquette arrière coulissante, grand volume pour la famille et les trajets du quotidien. Historique complet. Disques et plaquettes neufs à l'avant et à l'arrière. Très bien équipée : climatisation automatique, GPS, radio, ordinateur de bord, 4 vitres électriques, rétroviseurs électriques, jantes alu et vitres surteintées. Kilométrage relevé au compteur, non garanti. Visite et essai sur rendez-vous à Saint-Martin-de-Crau.",
+      "Opel Meriva 1.6 105 ch de 2008 en finition Cosmo, gris argent, boîte manuelle.\nMonospace compact et très pratique\u00a0: habitacle modulable, banquette arrière coulissante, grand volume pour la famille et les trajets du quotidien. Historique complet. Quatre freins à disques neufs. Très bien équipée\u00a0: climatisation automatique, grand écran avec radio intégrée et GPS, ordinateur de bord, commandes au volant, 4 vitres électriques, rétroviseurs électriques, jantes alu et vitres surteintées. Kilométrage relevé au compteur, non garanti. Visite et essai sur rendez-vous à Saint-Martin-de-Crau.",
     points_forts: [
       'Historique complet',
-      'Disques et plaquettes neufs, avant et arrière',
-      'Climatisation automatique, GPS, radio, ordinateur de bord',
+      'Quatre freins à disques neufs',
+      'Climatisation automatique, grand écran avec radio intégrée et GPS',
+      'Ordinateur de bord, commandes au volant',
       '4 vitres électriques, rétroviseurs électriques',
       'Jantes alu, vitres surteintées',
       'Moteur essence 1.6 de 105 ch, boîte manuelle',
@@ -49,14 +49,12 @@ const toutesLesVoitures = [
     garanties: ['Garantie selon conditions de vente Autimmob', 'Contrôle sur 133 points'],
     media: {
       photos: [
-        { url: '/cars/opel-meriva/01-face.jpg', alt: 'Opel Meriva, vue de face' },
-        { url: '/cars/opel-meriva/02-trois-quarts-avant.jpg', alt: 'Opel Meriva, trois-quarts avant gauche' },
-        { url: '/cars/opel-meriva/03-profil-gauche.jpg', alt: 'Opel Meriva, profil gauche' },
-        { url: '/cars/opel-meriva/04-trois-quarts-avant-2.jpg', alt: 'Opel Meriva, trois-quarts avant droit' },
-        { url: '/cars/opel-meriva/05-profil-droit.jpg', alt: 'Opel Meriva, profil droit' },
-        { url: '/cars/opel-meriva/06-habitacle-avant.jpg', alt: 'Opel Meriva, poste de conduite' },
-        { url: '/cars/opel-meriva/07-sieges-avant.jpg', alt: 'Opel Meriva, sièges avant' },
-        { url: '/cars/opel-meriva/08-banquette-arriere.jpg', alt: 'Opel Meriva, banquette arrière' },
+        { url: '/cars/opel-meriva/face.jpg', alt: 'Opel Meriva, vue de face' },
+        { url: '/cars/opel-meriva/trois-quarts-avant.jpg', alt: 'Opel Meriva, trois-quarts avant gauche' },
+        { url: '/cars/opel-meriva/habitacle.jpg', alt: 'Opel Meriva, poste de conduite et sièges avant' },
+        { url: '/cars/opel-meriva/banquette.jpg', alt: 'Opel Meriva, banquette arrière' },
+        { url: '/cars/opel-meriva/coffre.jpg', alt: 'Opel Meriva, coffre' },
+        { url: '/cars/opel-meriva/moteur.jpg', alt: 'Opel Meriva, compartiment moteur 1.6' },
       ],
       views360: [],
       videos: [],
@@ -102,8 +100,7 @@ const toutesLesVoitures = [
   },
   {
     id: 'ford-fiesta-2014',
-    enLigne: false, // masquée pour l'instant
-    ajoutee: '2026-11-08', // date de mise en ligne : sert à la page Nouveautés (30 jours)
+    ajoutee: '2026-11-11', // date de mise en ligne : sert à la page Nouveautés (30 jours)
     slug: 'ford-fiesta-2014',
     dossierDrive: 'Ford Fiesta', // sous-dossier Drive AUTIMMOB/voiture/ (utilisé par l'agent annonceur)
     marque: 'Ford',
@@ -118,9 +115,12 @@ const toutesLesVoitures = [
     category: 'standard',
     vendeur: 'autimmob',
     description:
-      "Ford Fiesta 1.25 82 ch en finition Trend, 5 portes, première mise en circulation en mars 2014, blanche, 123 762 km au compteur. Citadine simple, économique et facile à vivre, idéale pour la ville comme pour les trajets quotidiens. Véhicule présenté en l'état réel, photos non retouchées. Contactez-nous pour l'essayer à Saint-Martin-de-Crau.",
+      "Ford Fiesta 1.25 82 ch en finition Trend, 5 portes, première mise en circulation en mars 2014, blanche, 123 762 km au compteur. Citadine simple, économique et facile à vivre, idéale pour la ville comme pour les trajets quotidiens. Courroie de distribution changée à 90 000 km. Équipée\u00a0: climatisation automatique, autoradio intégré avec Bluetooth, ordinateur de bord, rétroviseurs électriques et nouvelles jantes. Véhicule présenté en l'état réel, photos non retouchées. Contactez-nous pour l'essayer à Saint-Martin-de-Crau.",
     points_forts: [
       'Citadine 5 portes, pratique au quotidien',
+      'Courroie de distribution changée à 90 000 km',
+      'Climatisation automatique, Bluetooth, ordinateur de bord',
+      'Nouvelles jantes',
       'Moteur essence, entretien et assurance abordables',
       'Compartiment moteur propre, photos à l\'appui',
       'Essai possible sur rendez-vous à Saint-Martin-de-Crau',
@@ -128,11 +128,11 @@ const toutesLesVoitures = [
     garanties: ['Garantie selon conditions de vente Autimmob', 'Contrôle sur 133 points'],
     media: {
       photos: [
-        { url: '/cars/ford-fiesta-2014/01-face.jpg', alt: 'Ford Fiesta 2014, vue de face' },
-        { url: '/cars/ford-fiesta-2014/02-trois-quarts-avant.jpg', alt: 'Ford Fiesta 2014, trois-quarts avant' },
-        { url: '/cars/ford-fiesta-2014/03-profil.jpg', alt: 'Ford Fiesta 2014, profil' },
-        { url: '/cars/ford-fiesta-2014/04-trois-quarts-arriere.jpg', alt: 'Ford Fiesta 2014, trois-quarts arrière' },
-        { url: '/cars/ford-fiesta-2014/05-moteur.jpg', alt: 'Ford Fiesta 2014, compartiment moteur' },
+        { url: '/cars/ford-fiesta-2014/face.jpg', alt: 'Ford Fiesta 2014, vue de face' },
+        { url: '/cars/ford-fiesta-2014/trois-quarts-avant.jpg', alt: 'Ford Fiesta 2014, trois-quarts avant avec les nouvelles jantes' },
+        { url: '/cars/ford-fiesta-2014/trois-quarts-arriere.jpg', alt: 'Ford Fiesta 2014, trois-quarts arrière' },
+        { url: '/cars/ford-fiesta-2014/arriere-gauche.jpg', alt: 'Ford Fiesta 2014, arrière gauche' },
+        { url: '/cars/ford-fiesta-2014/moteur.jpg', alt: 'Ford Fiesta 2014, compartiment moteur' },
       ],
       views360: photos360('ford-fiesta-2014', ['interieur']),
       videos: [],
