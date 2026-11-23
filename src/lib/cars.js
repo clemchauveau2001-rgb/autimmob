@@ -19,6 +19,50 @@ export function photos360(slug, vues = ['exterieur', 'interieur']) {
    Pour publier : supprimer la ligne `enLigne: false` du véhicule. */
 const toutesLesVoitures = [
   {
+    id: 'citroen-c-elysee',
+    slug: 'citroen-c-elysee',
+    dossierDrive: 'Citroën C-Elysée', // sous-dossier Drive AUTIMMOB/voiture/ (utilisé par l'agent annonceur)
+    ajoutee: '2026-11-23', // date de mise en ligne : sert à la page Nouveautés (30 jours)
+    marque: 'Citroën',
+    modele: 'C-Elysée HDi 100',
+    annee: 2018,
+    prix: 4800,
+    km: 171000,
+    moteur: 'Diesel HDi',
+    puissance: 100,
+    boite: 'Manuelle',
+    couleur: 'Blanc',
+    category: 'standard',
+    vendeur: 'autimmob',
+    description:
+      "Citroën C-Elysée HDi 100 ch de 2018, blanche, boîte manuelle, 171 000 km.\nBerline diesel confortable et économique, avec un grand coffre et une banquette rabattable pour les longs trajets comme pour le quotidien. Gros entretien effectué. Les 4 pneus et les disques avant sont neufs. Très bien équipée\u00a0: 4 vitres électriques, climatisation automatique, GPS et CarPlay, rétroviseurs électriques, radar de recul, régulateur et limiteur de vitesse, coffre avec assistance électrique, radio avec commandes au volant, ordinateur de bord. Visite et essai sur rendez-vous à Saint-Martin-de-Crau.",
+    points_forts: [
+      'Gros entretien effectué',
+      '4 pneus neufs et disques avant neufs',
+      'GPS et CarPlay, radio avec commandes au volant',
+      'Climatisation automatique, régulateur et limiteur de vitesse',
+      'Radar de recul, coffre avec assistance électrique',
+      '4 vitres électriques, rétroviseurs électriques',
+      'Berline diesel HDi 100 ch, boîte manuelle',
+      'Essai possible sur rendez-vous à Saint-Martin-de-Crau',
+    ],
+    garanties: ['Garantie selon conditions de vente Autimmob', 'Contrôle sur 133 points'],
+    media: {
+      photos: [
+        { url: '/cars/citroen-c-elysee/trois-quarts-avant.jpg', alt: 'Citroën C-Elysée, trois-quarts avant' },
+        { url: '/cars/citroen-c-elysee/profil-gauche.jpg', alt: 'Citroën C-Elysée, profil gauche' },
+        { url: '/cars/citroen-c-elysee/trois-quarts-arriere.jpg', alt: 'Citroën C-Elysée, trois-quarts arrière' },
+        { url: '/cars/citroen-c-elysee/profil-droit.jpg', alt: 'Citroën C-Elysée, profil droit' },
+        { url: '/cars/citroen-c-elysee/habitacle.jpg', alt: 'Citroën C-Elysée, poste de conduite' },
+        { url: '/cars/citroen-c-elysee/banquette.jpg', alt: 'Citroën C-Elysée, banquette arrière' },
+        { url: '/cars/citroen-c-elysee/coffre.jpg', alt: 'Citroën C-Elysée, coffre' },
+        { url: '/cars/citroen-c-elysee/moteur.jpg', alt: 'Citroën C-Elysée, compartiment moteur HDi' },
+      ],
+      views360: [],
+      videos: [],
+    },
+  },
+  {
     id: 'opel-meriva',
     slug: 'opel-meriva',
     dossierDrive: 'Opel Meriva', // sous-dossier Drive AUTIMMOB/voiture/ (utilisé par l'agent annonceur)
